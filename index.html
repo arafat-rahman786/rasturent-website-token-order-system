@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>BurgerBite — Good Food, Happy People</title>
+
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="./src/style.css" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  <style>
+    * {
+      font-family: "Inter", sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-[#090b0c] text-white">
+
+  <!-- ================= HEADER ================= -->
+
+<header class="absolute left-0 top-0 z-50 w-full border-b border-white/10 bg-[#090b0c]/80 backdrop-blur-xl">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+    <div class="flex h-[76px] items-center justify-between gap-4">
+
+      <!-- Logo -->
+      <a href="#home" class="group flex shrink-0 items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#ffb31a] text-xl text-black shadow-lg shadow-[#ffb31a]/20 transition duration-300 group-hover:rotate-3 group-hover:scale-105">
+          <i class="fa-solid fa-burger"></i>
+        </div>
+
+        <div class="leading-none">
+          <h1 class="text-lg font-extrabold tracking-tight text-white sm:text-xl">
+            Burger<span class="text-[#ffb31a]">Bite</span>
+          </h1>
+          <p class="mt-1 text-[9px] font-medium tracking-wide text-white/50">
+            GOOD FOOD · HAPPY PEOPLE
+          </p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden items-center gap-8 lg:flex">
+        <a href="#home" class="relative py-2 text-sm font-semibold text-[#ffb31a]">
+          Home
+          <span class="absolute -bottom-1 left-1/2 h-0.5 w-5 -translate-x-1/2 rounded-full bg-[#ffb31a]"></span>
+        </a>
+
+        <a href="#menu" class="py-2 text-sm font-medium text-white/65 transition hover:text-[#ffb31a]">Menu</a>
+        <a href="#how-it-works" class="py-2 text-sm font-medium text-white/65 transition hover:text-[#ffb31a]">How It Works</a>
+        <a href="#contact" class="py-2 text-sm font-medium text-white/65 transition hover:text-[#ffb31a]">Contact</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="flex shrink-0 items-center gap-2 sm:gap-3">
+
+        <!-- Wishlist -->
+        <a href="wishlist.html"
+          aria-label="Wishlist"
+          class="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-lg text-white/80 transition hover:border-[#ffb31a]/50 hover:bg-[#ffb31a]/10 hover:text-[#ffb31a]">
+          <i class="fa-regular fa-heart transition group-hover:scale-110"></i>
+          <span class="absolute -right-1 -top-1 flex h-[17px] min-w-[17px] items-center justify-center rounded-full bg-[#ffb31a] px-1 text-[10px] font-extrabold text-black">0</span>
+        </a>
+
+        <!-- Cart -->
+        <a href="cart.html" id="cartOpen"
+          aria-label="Shopping Cart"
+          class="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-lg text-white/80 transition hover:border-[#ffb31a]/50 hover:bg-[#ffb31a]/10 hover:text-[#ffb31a]">
+          <i class="fa-solid fa-cart-shopping transition group-hover:scale-110"></i>
+          <span id="cartSpen" class="absolute -right-1 -top-1 flex h-[17px] min-w-[17px] items-center justify-center rounded-full bg-[#ffb31a] px-1 text-[10px] font-extrabold text-black">0</span>
+        </a>
+
+        <!-- Get Token -->
+        <a href=""
+          id="token_location"
+          class="hidden shrink-0 items-center gap-2 rounded-xl bg-[#ffb31a] px-4 py-3 text-sm font-bold text-black shadow-lg shadow-[#ffb31a]/10 transition duration-300 hover:-translate-y-0.5 hover:bg-[#ffc044] sm:inline-flex">
+          <i class="fa-solid fa-ticket"></i>
+          <span class="hidden xl:inline">Get Token</span>
+          <span class="xl:hidden">Token</span>
+        </a>
+
+        <!-- CSS-only Mobile Menu -->
+        <details class="relative lg:hidden">
+          <summary
+            aria-label="Open navigation menu"
+            class="flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-xl border border-white/10 bg-white/5 text-lg text-white transition hover:border-[#ffb31a]/50 hover:text-[#ffb31a] [&::-webkit-details-marker]:hidden">
+            <i class="fa-solid fa-bars"></i>
+          </summary>
+
+          <nav class="absolute right-0 top-12 z-50 w-64 rounded-2xl border border-white/10 bg-[#111416] p-3 shadow-2xl shadow-black/40">
+            <a href="#home" class="block rounded-lg px-4 py-3 text-sm text-white/75 transition hover:bg-white/5 hover:text-[#ffb31a]">Home</a>
+            <a href="#menu" class="block rounded-lg px-4 py-3 text-sm text-white/75 transition hover:bg-white/5 hover:text-[#ffb31a]">Menu</a>
+            <a href="#how-it-works" class="block rounded-lg px-4 py-3 text-sm text-white/75 transition hover:bg-white/5 hover:text-[#ffb31a]">How It Works</a>
+            <a href="#contact" class="block rounded-lg px-4 py-3 text-sm text-white/75 transition hover:bg-white/5 hover:text-[#ffb31a]">Contact</a>
+
+            <div class="my-2 border-t border-white/10"></div>
+
+            <a href="wishlist.html" class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-white/80 transition hover:bg-white/5 hover:text-[#ffb31a]">
+              <i class="fa-regular fa-heart w-5 text-center"></i>
+              Wishlist
+              <span class="ml-auto rounded-full bg-white/10 px-2 py-0.5 text-xs">0</span>
+            </a>
+
+            <a href="cart.html" class="flex items-center gap-3 rounded-lg px-4 py-3 text-sm text-white/80 transition hover:bg-white/5 hover:text-[#ffb31a]">
+              <i class="fa-solid fa-cart-shopping w-5 text-center"></i>
+              My Cart
+              <span class="ml-auto rounded-full bg-white/10 px-2 py-0.5 text-xs">0</span>
+            </a>
+
+            <a href="get-token.html" class="mt-2 flex items-center justify-center gap-2 rounded-lg bg-[#ffb31a] px-4 py-3 text-sm font-bold text-black transition hover:bg-[#ffc044]">
+              <i class="fa-solid fa-ticket"></i>
+              Get Your Token
+            </a>
+          </nav>
+        </details>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+  <!-- ================= HERO SECTION ================= -->
+
+  <main>
+
+    <section id="home" class="relative isolate flex min-h-screen items-center overflow-hidden bg-[#090b0c] pt-28 pb-20">
+
+      <!-- Background Image -->
+
+      <div class="absolute inset-0 -z-20">
+
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=2000&q=85" alt=""
+          class="h-full w-full object-cover object-center" />
+
+      </div>
+
+      <!-- Dark Overlay -->
+
+      <div class="absolute inset-0 -z-10 bg-gradient-to-r from-[#090b0c] via-[#090b0c]/90 to-[#090b0c]/50"></div>
+
+      <div class="absolute inset-0 -z-10 bg-gradient-to-t from-[#090b0c] via-transparent to-[#090b0c]/45"></div>
+
+      <!-- Background Glow -->
+
+      <div class="absolute -right-32 top-32 -z-10 h-[400px] w-[400px] rounded-full bg-[#ffb31a]/10 blur-[120px]"></div>
+
+      <div class="absolute -left-40 bottom-0 -z-10 h-[350px] w-[350px] rounded-full bg-orange-500/5 blur-[120px]"></div>
+
+      <!-- Hero Container -->
+
+      <div class="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
+
+        <div class="grid grid-cols-1 items-center gap-14 lg:grid-cols-12">
+
+          <!-- Left Content -->
+
+          <div class="max-w-2xl lg:col-span-7">
+
+            <!-- Badge -->
+
+            <div
+              class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
+
+              <span class="h-2 w-2 rounded-full bg-[#ffb31a] shadow-[0_0_10px_#ffb31a]"></span>
+
+              <span class="text-xs font-semibold tracking-wide text-white/80 sm:text-sm">
+                Fresh · Tasty · Always
+              </span>
+
+            </div>
+
+            <!-- Heading -->
+
+            <h2 class="max-w-3xl text-5xl font-black leading-[1.04] tracking-tight sm:text-6xl lg:text-7xl">
+
+              Good Food
+
+              <br />
+
+              <span class="text-[#ffb31a]">
+                Makes Better Days
+              </span>
+
+            </h2>
+
+            <!-- Description -->
+
+            <p class="mt-6 max-w-xl text-sm leading-7 text-white/70 sm:text-base sm:leading-8">
+
+              From juicy burgers to crispy fries, we serve delicious
+              fast food made with fresh ingredients and great taste.
+              Come hungry, leave happy!
+
+            </p>
+
+            <!-- CTA Buttons -->
+
+            <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+
+              <a href="#token"
+                class="group inline-flex items-center justify-center gap-3 rounded-xl bg-[#ffb31a] px-6 py-4 text-sm font-bold text-black shadow-xl shadow-[#ffb31a]/10 transition duration-300 hover:-translate-y-1 hover:bg-[#ffc044]">
+
+                <i class="fa-solid fa-ticket"></i>
+
+                Get Your Token
+
+                <i class="fa-solid fa-arrow-right text-xs transition duration-300 group-hover:translate-x-1"></i>
+
+              </a>
+
+              <a href="#menu"
+                class="inline-flex items-center justify-center gap-3 rounded-xl border border-white/20 bg-white/5 px-6 py-4 text-sm font-semibold text-white backdrop-blur-md transition duration-300 hover:border-[#ffb31a]/50 hover:bg-white/10">
+
+                View Our Menu
+
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+
+              </a>
+
+            </div>
+
+            <!-- Trust Points -->
+
+            <div class="mt-10 flex flex-wrap gap-x-7 gap-y-4">
+
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-[#ffb31a]"></i>
+                <span class="text-xs font-medium text-white/65">Fresh Ingredients</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-[#ffb31a]"></i>
+                <span class="text-xs font-medium text-white/65">Fast Service</span>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-circle-check text-[#ffb31a]"></i>
+                <span class="text-xs font-medium text-white/65">Clean &amp; Hygienic</span>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Right Visual -->
+
+          <div class="relative hidden lg:col-span-5 lg:block">
+
+            <!-- Decorative Circles -->
+
+            <div
+              class="absolute right-0 top-1/2 h-[420px] w-[420px] -translate-y-1/2 rounded-full border border-[#ffb31a]/15">
+            </div>
+
+            <div
+              class="absolute right-10 top-1/2 h-[320px] w-[320px] -translate-y-1/2 rounded-full border border-[#ffb31a]/15">
+            </div>
+
+            <!-- Floating Badge -->
+
+            <div
+              class="absolute -left-4 top-16 z-20 rounded-2xl border border-white/10 bg-[#111416]/95 px-5 py-4 shadow-2xl backdrop-blur-xl">
+
+              <p class="font-serif text-xl italic text-[#ffb31a]">
+                Freshly
+              </p>
+
+              <p class="text-sm font-bold text-white">
+                Made
+              </p>
+
+            </div>
+
+            <!-- Burger Image -->
+
+            <div class="relative z-10 mx-auto w-[min(390px,100%)]">
+
+              <div class="absolute inset-8 rounded-full bg-[#ffb31a]/20 blur-[70px]"></div>
+
+              <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=90"
+                alt="Freshly made cheeseburger"
+                class="relative aspect-[4/5] w-full rounded-[40px] object-cover shadow-2xl shadow-black/60" />
+
+            </div>
+
+            <!-- Rating Card -->
+
+            <div
+              class="absolute -bottom-4 right-0 z-20 rounded-2xl border border-white/10 bg-[#111416]/95 px-5 py-4 shadow-2xl backdrop-blur-xl">
+
+              <div class="flex items-center gap-3">
+
+                <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ffb31a] text-black">
+                  <i class="fa-solid fa-star"></i>
+                </div>
+
+                <div>
+                  <p class="text-sm font-bold">4.9 / 5</p>
+                  <p class="text-[11px] text-white/50">Loved by foodies</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+<section id="menu" class="relative overflow-hidden bg-[#faf9f6] py-20 sm:py-24">
+
+  <!-- Background Decoration -->
+  <div class="pointer-events-none absolute -left-32 top-40 h-80 w-80 rounded-full bg-amber-100/60 blur-3xl"></div>
+  <div class="pointer-events-none absolute -right-32 bottom-20 h-80 w-80 rounded-full bg-orange-100/50 blur-3xl"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Heading -->
+    <div class="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between">
+
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-white px-4 py-2 shadow-sm">
+          <span class="h-2 w-2 rounded-full bg-[#f5a900]"></span>
+          <span class="text-xs font-extrabold uppercase tracking-[0.18em] text-[#9a6500]">
+            Made Fresh, Served Hot
+          </span>
+        </div>
+
+        <h2 class="mt-5 text-4xl font-black leading-tight tracking-tight text-[#181818] sm:text-5xl lg:text-6xl">
+          Cravings Meet
+          <span class="text-[#f5a900]">Their Match.</span>
+        </h2>
+
+        <p class="mt-5 max-w-xl text-sm leading-7 text-gray-500 sm:text-base">
+          Big flavors, fresh ingredients, and unforgettable bites.
+          Find your next favorite from our handcrafted menu.
+        </p>
+      </div>
+
+      <a href="#contact" class="inline-flex w-fit shrink-0 items-center gap-3 rounded-xl bg-[#181818] px-6 py-4 text-sm font-bold text-white transition hover:bg-[#f5a900] hover:text-[#181818]">
+        Explore Full Menu
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+    </div>
+
+    <!-- Category Pills -->
+    <div class="mb-10 flex flex-wrap gap-3">
+      <a href="#burgers" class="inline-flex items-center gap-2 rounded-full bg-[#181818] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-black/10 transition hover:bg-[#f5a900] hover:text-[#181818]">
+        <i class="fa-solid fa-burger"></i>
+        Burgers
+      </a>
+
+      <a href="#sides" class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-gray-600 transition hover:border-[#f5a900] hover:text-[#181818]">
+        <i class="fa-solid fa-bowl-food text-[#e9a000]"></i>
+        Sides
+      </a>
+
+      <a href="#drinks" class="inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-5 py-3 text-sm font-semibold text-gray-600 transition hover:border-[#f5a900] hover:text-[#181818]">
+        <i class="fa-solid fa-glass-water text-[#e9a000]"></i>
+        Drinks
+      </a>
+    </div>
+
+    <!-- Featured Menu Grid -->
+    <div id="menu_body"  class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 xl:gap-7">
+
+
+
+
+    </div>
+
+    <!-- Bottom Note -->
+    <div class="mt-12 flex flex-col items-center justify-between gap-5 rounded-2xl border border-gray-200 bg-white p-5 sm:flex-row sm:px-7">
+      <div class="flex items-center gap-4">
+        <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-xl text-[#d99500]">
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+
+        <div>
+          <h3 class="font-extrabold text-[#181818]">Made fresh for every craving</h3>
+          <p class="mt-1 text-sm text-gray-500">Quality ingredients. Bold flavors. Happy bites.</p>
+        </div>
+      </div>
+
+      <a href="#contact" class="inline-flex shrink-0 items-center gap-2 text-sm font-extrabold text-[#181818] transition hover:text-[#d99500]">
+        Have a question?
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section id="how-it-works" class="overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <!-- Heading -->
+    <div class="mx-auto mb-14 max-w-2xl text-center">
+      <span class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-amber-700">
+        <i class="fa-solid fa-bolt"></i>
+        Simple & Convenient
+      </span>
+
+      <h2 class="mt-5 text-3xl font-extrabold tracking-tight text-[#171717] sm:text-4xl lg:text-5xl">
+        Good Food, Just
+        <span class="text-[#f5a900]">3 Steps Away</span>
+      </h2>
+
+      <p class="mx-auto mt-4 max-w-xl text-sm leading-7 text-gray-500 sm:text-base">
+        Getting your favorite food has never been easier. Pick your meal,
+        place your order, and enjoy every bite.
+      </p>
+    </div>
+
+    <!-- Steps -->
+    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+
+      <!-- Step 1 -->
+      <div class="group relative rounded-3xl border border-gray-100 bg-[#fafaf8] p-7 text-center transition duration-300 hover:-translate-y-1 hover:border-amber-200 hover:bg-white hover:shadow-xl hover:shadow-amber-900/5 sm:p-8">
+        <span class="absolute right-6 top-6 text-5xl font-black text-gray-100 transition group-hover:text-amber-100">
+          01
+        </span>
+
+        <div class="relative mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-amber-100 text-3xl text-[#d99500] transition duration-300 group-hover:rotate-3 group-hover:bg-[#f5a900] group-hover:text-[#171717]">
+          <i class="fa-solid fa-utensils"></i>
+        </div>
+
+        <h3 class="mt-6 text-xl font-extrabold text-[#171717]">
+          Choose Your Food
+        </h3>
+
+        <p class="mx-auto mt-3 max-w-xs text-sm leading-7 text-gray-500">
+          Explore our delicious menu and discover burgers, sides, and refreshing drinks.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="group relative rounded-3xl border border-gray-100 bg-[#fafaf8] p-7 text-center transition duration-300 hover:-translate-y-1 hover:border-amber-200 hover:bg-white hover:shadow-xl hover:shadow-amber-900/5 sm:p-8">
+        <span class="absolute right-6 top-6 text-5xl font-black text-gray-100 transition group-hover:text-amber-100">
+          02
+        </span>
+
+        <div class="relative mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-amber-100 text-3xl text-[#d99500] transition duration-300 group-hover:rotate-3 group-hover:bg-[#f5a900] group-hover:text-[#171717]">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+
+        <h3 class="mt-6 text-xl font-extrabold text-[#171717]">
+          Place Your Order
+        </h3>
+
+        <p class="mx-auto mt-3 max-w-xs text-sm leading-7 text-gray-500">
+          Select your favorites and get ready for a satisfying food experience.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="group relative rounded-3xl border border-gray-100 bg-[#fafaf8] p-7 text-center transition duration-300 hover:-translate-y-1 hover:border-amber-200 hover:bg-white hover:shadow-xl hover:shadow-amber-900/5 sm:col-span-2 sm:p-8 lg:col-span-1">
+        <span class="absolute right-6 top-6 text-5xl font-black text-gray-100 transition group-hover:text-amber-100">
+          03
+        </span>
+
+        <div class="relative mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-amber-100 text-3xl text-[#d99500] transition duration-300 group-hover:rotate-3 group-hover:bg-[#f5a900] group-hover:text-[#171717]">
+          <i class="fa-solid fa-face-smile"></i>
+        </div>
+
+        <h3 class="mt-6 text-xl font-extrabold text-[#171717]">
+          Enjoy Every Bite
+        </h3>
+
+        <p class="mx-auto mt-3 max-w-xs text-sm leading-7 text-gray-500">
+          Sit back, relax, and enjoy great food with your friends and family.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ================== END HOW IT WORKS ================== -->
+
+
+<!-- ==================== SPECIAL OFFER ==================== -->
+<section id="token" class="bg-[#f8f8f6] px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+  <div class="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-[#171717]">
+
+    <!-- Decorative Shapes -->
+    <div class="absolute -right-20 -top-24 h-52 w-72 rounded-full bg-[#f5a900]/10"></div>
+    <div class="absolute -bottom-32 left-1/3 h-64 w-64 rounded-full bg-[#f5a900]/10"></div>
+
+    <div class="relative grid grid-cols-1 items-center gap-10 px-6 py-12 sm:px-10 sm:py-16 lg:grid-cols-2 lg:px-16 lg:py-20">
+
+      <!-- Offer Content -->
+      <div>
+        <span class="inline-flex items-center gap-2 rounded-full bg-[#f5a900] px-4 py-2 text-xs font-extrabold uppercase tracking-[0.15em] text-[#171717]">
+          <i class="fa-solid fa-gift"></i>
+          Made for Food Lovers
+        </span>
+
+        <h2 class="mt-6 max-w-xl text-3xl font-black leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
+          Your Next Favorite Meal
+          <span class="text-[#f5a900]">Is Waiting.</span>
+        </h2>
+
+        <p class="mt-5 max-w-lg text-sm leading-7 text-gray-400 sm:text-base">
+          Big cravings deserve big flavor. Explore our menu and find something
+          delicious for your next meal.
+        </p>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a href="#menu" class="inline-flex items-center justify-center gap-3 rounded-xl bg-[#f5a900] px-6 py-3.5 text-sm font-extrabold text-[#171717] transition hover:bg-white">
+            Explore Menu
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+
+          <a href="#contact" class="inline-flex items-center justify-center gap-3 rounded-xl border border-white/20 px-6 py-3.5 text-sm font-bold text-white transition hover:border-[#f5a900] hover:text-[#f5a900]">
+            Contact Us
+            <i class="fa-solid fa-phone"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Offer Visual -->
+      <div class="relative mx-auto flex w-full max-w-md items-center justify-center">
+        <div class="absolute h-64 w-64 rounded-full border border-dashed border-[#f5a900]/40 sm:h-80 sm:w-80"></div>
+        <div class="absolute h-52 w-52 rounded-full bg-[#f5a900]/10 sm:h-64 sm:w-64"></div>
+
+        <img
+          src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85"
+          alt="BurgerBite signature cheeseburger"
+          class="relative z-10 w-full max-w-sm drop-shadow-2xl transition duration-500 hover:scale-105"
+          loading="lazy"
+        />
+
+        <div class="absolute right-0 top-2 z-20 flex h-24 w-24 rotate-12 flex-col items-center justify-center rounded-full border-4 border-[#171717] bg-[#f5a900] text-center shadow-xl sm:right-2 sm:top-0">
+          <span class="text-xs font-bold uppercase">Made With</span>
+          <span class="text-lg font-black">Love!</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ================== END SPECIAL OFFER ================== -->
+
+
+<!-- ==================== FOOTER ==================== -->
+<footer id="contact" class="bg-[#101112] text-white">
+
+  <!-- Footer Main -->
+  <div class="mx-auto max-w-7xl px-4 pb-12 pt-16 sm:px-6 lg:px-8 lg:pt-20">
+    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-12">
+
+      <!-- Brand -->
+      <div>
+        <a href="#home" class="inline-flex items-center gap-3">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f5a900] text-xl text-[#171717]">
+            <i class="fa-solid fa-burger"></i>
+          </span>
+
+          <span class="text-2xl font-black tracking-tight">
+            Burger<span class="text-[#f5a900]">Bite.</span>
+          </span>
+        </a>
+
+        <p class="mt-5 max-w-xs text-sm leading-7 text-gray-400">
+          Good food, happy people. We serve delicious bites made with quality
+          ingredients and a whole lot of love.
+        </p>
+
+        <!-- Social Links -->
+        <div class="mt-6 flex items-center gap-3">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-gray-300 transition hover:border-[#f5a900] hover:bg-[#f5a900] hover:text-[#171717]">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-gray-300 transition hover:border-[#f5a900] hover:bg-[#f5a900] hover:text-[#171717]">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-gray-300 transition hover:border-[#f5a900] hover:bg-[#f5a900] hover:text-[#171717]">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+
+          <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 text-gray-300 transition hover:border-[#f5a900] hover:bg-[#f5a900] hover:text-[#171717]">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-base font-extrabold text-white">Quick Links</h3>
+        <div class="mt-5 h-1 w-10 rounded-full bg-[#f5a900]"></div>
+
+        <ul class="mt-5 space-y-4 text-sm text-gray-400">
+          <li>
+            <a href="#home" class="inline-flex items-center gap-2 transition hover:translate-x-1 hover:text-[#f5a900]">
+              <i class="fa-solid fa-angle-right text-xs text-[#f5a900]"></i>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#menu" class="inline-flex items-center gap-2 transition hover:translate-x-1 hover:text-[#f5a900]">
+              <i class="fa-solid fa-angle-right text-xs text-[#f5a900]"></i>
+              Our Menu
+            </a>
+          </li>
+          <li>
+            <a href="./dashboard.html" class="inline-flex items-center gap-2 transition hover:translate-x-1 hover:text-[#f5a900]">
+              <i class="fa-solid fa-angle-right text-xs text-[#f5a900]"></i>
+              How It Works
+            </a>
+          </li>
+          <li>
+            <a href="#token" class="inline-flex items-center gap-2 transition hover:translate-x-1 hover:text-[#f5a900]">
+              <i class="fa-solid fa-angle-right text-xs text-[#f5a900]"></i>
+              Special Offers
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Opening Hours -->
+      <div>
+        <h3 class="text-base font-extrabold text-white">Opening Hours</h3>
+        <div class="mt-5 h-1 w-10 rounded-full bg-[#f5a900]"></div>
+
+        <ul class="mt-5 space-y-4 text-sm">
+          <li class="flex items-start justify-between gap-4 border-b border-white/10 pb-3">
+            <span class="text-gray-400">Saturday – Thursday</span>
+            <span class="shrink-0 font-semibold text-white">11 AM – 11 PM</span>
+          </li>
+
+          <li class="flex items-start justify-between gap-4 border-b border-white/10 pb-3">
+            <span class="text-gray-400">Friday</span>
+            <span class="shrink-0 font-semibold text-white">2 PM – 11 PM</span>
+          </li>
+        </ul>
+
+        <div class="mt-5 inline-flex items-center gap-2 rounded-lg bg-green-500/10 px-3 py-2 text-xs font-semibold text-green-400">
+          <span class="h-2 w-2 rounded-full bg-green-400"></span>
+          Fresh food, made daily
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-base font-extrabold text-white">Get In Touch</h3>
+        <div class="mt-5 h-1 w-10 rounded-full bg-[#f5a900]"></div>
+
+        <ul class="mt-5 space-y-5 text-sm text-gray-400">
+          <li class="flex items-start gap-3">
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/5 text-[#f5a900]">
+              <i class="fa-solid fa-location-dot"></i>
+            </span>
+            <div>
+              <p class="font-bold text-white">Our Location</p>
+              <p class="mt-1 leading-6">Dhaka, Bangladesh</p>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/5 text-[#f5a900]">
+              <i class="fa-solid fa-phone"></i>
+            </span>
+            <div>
+              <p class="font-bold text-white">Call Us</p>
+              <a href="tel:+8801000000000" class="mt-1 block transition hover:text-[#f5a900]">
+                +880 1000-000000
+              </a>
+            </div>
+          </li>
+
+          <li class="flex items-start gap-3">
+            <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/5 text-[#f5a900]">
+              <i class="fa-solid fa-envelope"></i>
+            </span>
+            <div>
+              <p class="font-bold text-white">Email Us</p>
+              <a href="mailto:hello@burgerbite.com" class="mt-1 block transition hover:text-[#f5a900]">
+                hello@burgerbite.com
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="border-t border-white/10">
+    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-6 text-center sm:px-6 md:flex-row md:text-left lg:px-8">
+      <p class="text-xs leading-6 text-gray-500 sm:text-sm">
+        © 2026 BurgerBite. All rights reserved.
+      </p>
+
+      <p class="text-xs text-gray-500 sm:text-sm">
+        Made with
+        <i class="fa-solid fa-heart mx-1 text-[#f5a900]"></i>
+        for food lovers.
+      </p>
+
+      <a href="#home" class="inline-flex items-center gap-2 text-xs font-bold text-gray-400 transition hover:text-[#f5a900] sm:text-sm">
+        Back to Top
+        <i class="fa-solid fa-arrow-up"></i>
+      </a>
+    </div>
+  </div>
+
+</footer>
+<!-- ================== END FOOTER ================== -->
+
+
+<!-- Close the main element opened in Part 1 -->
+</main>
+
+
+
+
+
+
+<!-- ================= CART POPUP ================= -->
+
+<!-- Overlay -->
+<div
+  id="cartOverlay"
+  class="fixed inset-0 z-[90] hidden bg-black/50 backdrop-blur-sm transition-opacity"
+></div>
+
+<!-- Cart Drawer -->
+<aside
+  id="cartPopup"
+  class="fixed right-0 top-0 z-[100] flex h-dvh w-full max-w-md translate-x-full flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out"
+  aria-labelledby="cartTitle"
+  aria-modal="true"
+  role="dialog"
+>
+  <!-- Header -->
+  <div class="flex items-center justify-between border-b border-gray-100 px-5 py-5 sm:px-6">
+    <div>
+      <div class="flex items-center gap-2">
+        <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-100 text-amber-600">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M3 3h2l2.4 12.2a2 2 0 002 1.6h8.8a2 2 0 002-1.6L22 7H6" />
+            <circle cx="10" cy="21" r="1" />
+            <circle cx="18" cy="21" r="1" />
+          </svg>
+        </div>
+
+        <div>
+          <h2 id="cartTitle" class="text-xl font-extrabold tracking-tight text-gray-900">
+            Your Cart
+          </h2>
+          <p class="mt-0.5 text-xs text-gray-500">
+            Your favorites, ready to go!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <button
+      id="closeCartBtn"
+      type="button"
+      aria-label="Close cart"
+      class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200 hover:text-gray-900"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Cart Items Header -->
+  <div class="flex items-center justify-between px-5 pb-3 pt-5 sm:px-6">
+    <p class="text-sm font-bold text-gray-800">
+      Selected Items
+      <span
+        id="cartItemCount"
+        class="ml-1 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-amber-100 px-2 text-xs font-extrabold text-amber-700"
+      >0</span>
+    </p>
+
+    <button
+      id="clearCartBtn"
+      type="button"
+      class="text-xs font-semibold text-red-500 transition hover:text-red-700"
+    >
+      Clear cart
+    </button>
+  </div>
+
+
+  <div
+    id="cartItems"
+    class="flex-1 space-y-4 overflow-y-auto px-5 pb-5 sm:px-6"
+  >
+    <!-- Empty Cart State -->
+    <div
+      id="emptyCart"
+      class="flex min-h-[300px] flex-col items-center justify-center text-center"
+    >
+      <div class="flex h-24 w-24 items-center justify-center rounded-full bg-amber-50">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-amber-500"
+          fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M3 3h2l2.4 12.2a2 2 0 002 1.6h8.8a2 2 0 002-1.6L22 7H6" />
+          <circle cx="10" cy="21" r="1" />
+          <circle cx="18" cy="21" r="1" />
+        </svg>
+      </div>
+
+      <h3 class="mt-6 text-lg font-extrabold text-gray-900">
+        Your cart is empty!
+      </h3>
+      <p class="mt-2 max-w-[240px] text-sm leading-6 text-gray-500">
+        Looks like you haven't added any delicious food yet.
+      </p>
+
+      <button
+        id="continueShoppingBtn"
+        type="button"
+        class="mt-6 rounded-xl bg-amber-500 px-6 py-3 text-sm font-bold text-gray-950 shadow-lg shadow-amber-500/20 transition hover:bg-amber-400"
+      >
+        Explore Menu
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Bottom Summary -->
+  <div class="border-t border-gray-100 bg-white px-5 pb-5 pt-5 sm:px-6">
+
+
+
+    <!-- Price Summary -->
+    <div class="space-y-3">
+      <div class="border-t border-dashed border-gray-200 pt-3">
+        <div class="flex items-center justify-between">
+          <span class="text-base font-extrabold text-gray-900">Total Amount</span>
+          <span id="cartTotal" class="text-2xl font-black tracking-tight text-gray-900">৳0</span>
+        </div>
+        <p class="mt-1 text-right text-[11px] text-gray-400">
+          Including applicable charges
+        </p>
+      </div>
+    </div>
+
+    <!-- Checkout Button -->
+    <a
+      id="checkoutBtn"
+      href="./token.html"
+      class="mt-5 flex w-full items-center justify-center gap-3 rounded-2xl bg-amber-500 px-5 py-4 text-sm font-extrabold text-gray-950 shadow-lg shadow-amber-500/20 transition hover:-translate-y-0.5 hover:bg-amber-400 hover:shadow-xl"
+    >
+      <span>Proceed to Checkout</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7" />
+      </svg>
+    </a>
+
+    <p class="mt-3 text-center text-[11px] text-gray-400">
+      Secure checkout · Fresh food · Great taste
+    </p>
+  </div>
+</aside>
+<script type="module" src="./src/main.ts"></script>
+</body>
+</html>

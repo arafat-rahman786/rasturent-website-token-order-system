@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>BurgerBite — Dashboard</title>
+
+   <link rel="stylesheet" href="./src/style.css">
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  />
+
+  <style>
+    body {
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-[#f6f7f9] text-slate-900">
+
+  <!-- =====================================================
+       DASHBOARD WRAPPER
+  ====================================================== -->
+  <div class="min-h-screen">
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+    <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+
+      <div class="mx-auto flex h-16 max-w-[1500px] items-center justify-between px-4 sm:px-6 lg:px-8">
+
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3">
+
+          <div
+            class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ffb31a] text-[#090b0c] shadow-sm"
+          >
+            <i class="fa-solid fa-burger text-lg"></i>
+          </div>
+
+          <div>
+            <h1 class="text-lg font-black tracking-tight">
+              Burger<span class="text-[#ffb31a]">Bite</span>
+            </h1>
+
+            <p class="hidden text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 sm:block">
+              Admin Dashboard
+            </p>
+          </div>
+
+        </a>
+
+
+        <!-- Right -->
+        <div class="flex items-center gap-3">
+
+          <a
+            href="index.html"
+            class="hidden rounded-xl border border-slate-200 px-4 py-2 text-sm font-bold text-slate-600 transition hover:border-[#ffb31a] hover:text-[#c88700] sm:block"
+          >
+            <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>
+            View Website
+          </a>
+
+          <button
+            type="button"
+            class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-500 transition hover:bg-slate-50"
+          >
+            <i class="fa-solid fa-bell"></i>
+          </button>
+
+          <div
+            class="flex h-10 w-10 items-center justify-center rounded-full bg-slate-900 text-sm font-black text-white"
+          >
+            A
+          </div>
+
+        </div>
+
+      </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+    <main class="mx-auto max-w-[1500px] px-4 py-6 sm:px-6 lg:px-8">
+
+      <!-- ===================================================
+           PAGE HEADING
+      ==================================================== -->
+      <section class="mb-6">
+
+        <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+
+          <div>
+            <p class="mb-2 text-xs font-black uppercase tracking-[0.22em] text-[#d89500]">
+              Restaurant Management
+            </p>
+
+            <h2 class="text-3xl font-black tracking-tight sm:text-4xl">
+              Menu Dashboard
+            </h2>
+
+            <p class="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
+              Manage your menu products, preparation time, availability and
+              customer-facing product information from one place.
+            </p>
+          </div>
+
+          <div class="flex gap-3">
+
+            <button
+              type="button"
+              class="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-600 shadow-sm transition hover:bg-slate-50"
+            >
+              <i class="fa-solid fa-rotate mr-2"></i>
+              Refresh
+            </button>
+
+            <button
+              type="button"
+              class="rounded-xl bg-[#ffb31a] px-4 py-2.5 text-sm font-black text-[#090b0c] shadow-sm transition hover:bg-[#ffc044]"
+            >
+              <i class="fa-solid fa-plus mr-2"></i>
+              New Product
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           STAT CARDS
+      ==================================================== -->
+      <section class="mb-6 grid grid-cols-2 gap-4 xl:grid-cols-4">
+
+        <!-- Total -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+
+          <div class="flex items-start justify-between">
+
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-slate-400">
+                Total Products
+              </p>
+
+              <p class="mt-2 text-3xl font-black">
+                24
+              </p>
+            </div>
+
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 text-slate-600">
+              <i class="fa-solid fa-box"></i>
+            </div>
+
+          </div>
+
+          <p class="mt-3 text-xs font-semibold text-slate-400">
+            All menu items
+          </p>
+
+        </article>
+
+
+        <!-- Published -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+
+          <div class="flex items-start justify-between">
+
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-slate-400">
+                Published
+              </p>
+
+              <p class="mt-2 text-3xl font-black">
+                18
+              </p>
+            </div>
+
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-green-50 text-green-600">
+              <i class="fa-solid fa-check"></i>
+            </div>
+
+          </div>
+
+          <p class="mt-3 text-xs font-semibold text-green-600">
+            Visible to customers
+          </p>
+
+        </article>
+
+
+        <!-- Draft -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+
+          <div class="flex items-start justify-between">
+
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-slate-400">
+                Draft
+              </p>
+
+              <p class="mt-2 text-3xl font-black">
+                4
+              </p>
+            </div>
+
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
+              <i class="fa-solid fa-file-pen"></i>
+            </div>
+
+          </div>
+
+          <p class="mt-3 text-xs font-semibold text-amber-600">
+            Not published yet
+          </p>
+
+        </article>
+
+
+        <!-- Hidden -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+
+          <div class="flex items-start justify-between">
+
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider text-slate-400">
+                Hidden
+              </p>
+
+              <p class="mt-2 text-3xl font-black">
+                2
+              </p>
+            </div>
+
+            <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-red-50 text-red-500">
+              <i class="fa-solid fa-eye-slash"></i>
+            </div>
+
+          </div>
+
+          <p class="mt-3 text-xs font-semibold text-red-500">
+            Temporarily unavailable
+          </p>
+
+        </article>
+
+      </section>
+
+
+      <!-- ===================================================
+           EDITOR + PREVIEW
+      ==================================================== -->
+      <section class="grid grid-cols-1 gap-6 xl:grid-cols-[1.35fr_0.65fr]">
+
+        <!-- =================================================
+             PRODUCT EDITOR
+        ================================================== -->
+        <div class="rounded-3xl border border-slate-200 bg-white shadow-sm">
+
+          <!-- Editor Header -->
+          <div class="border-b border-slate-200 p-5 sm:p-6">
+
+            <div class="flex items-start justify-between gap-4">
+
+              <div>
+                <p class="text-xs font-black uppercase tracking-[0.18em] text-[#d89500]">
+                  Product Editor
+                </p>
+
+                <h3 class="mt-1 text-xl font-black">
+                  Create Menu Product
+                </h3>
+
+                <p class="mt-1 text-sm text-slate-400">
+                  Add product information and preparation settings.
+                </p>
+              </div>
+
+              <span
+                class="rounded-full bg-slate-100 px-3 py-1 text-xs font-bold text-slate-500"
+              >
+                New
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- Form -->
+          <form id="menuEditorForm" class="space-y-6 p-5 sm:p-6">
+
+            <!-- Basic Info -->
+            <div>
+
+              <div class="mb-4 flex items-center gap-3">
+
+                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-sm">
+                  <i class="fa-solid fa-circle-info"></i>
+                </div>
+
+                <div>
+                  <h4 class="text-sm font-black">
+                    Basic Information
+                  </h4>
+
+                  <p class="text-xs text-slate-400">
+                    Main product details
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+                <!-- Product ID -->
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Product ID
+                  </label>
+
+                  <input
+                    name="productId"
+                    type="text"
+                    placeholder="BB-4087"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-[#ffb31a] focus:bg-white focus:ring-4 focus:ring-[#ffb31a]/10"
+                  />
+                </div>
+
+
+                <!-- Product Name -->
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Product Name
+                  </label>
+
+                  <input
+                    name="productName"
+                    type="text"
+                    placeholder="Double Fire Burger"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-[#ffb31a] focus:bg-white focus:ring-4 focus:ring-[#ffb31a]/10"
+                  />
+                </div>
+
+
+                <!-- Category -->
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Category
+                  </label>
+
+                  <select
+                    name="category"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-[#ffb31a] focus:bg-white focus:ring-4 focus:ring-[#ffb31a]/10"
+                  >
+                    <option value="">Select category</option>
+                    <option value="Burgers">Burgers</option>
+                    <option value="Pizzas">Pizzas</option>
+                    <option value="Pasta">Pasta</option>
+                    <option value="Chicken">Chicken</option>
+                    <option value="Fries">Fries</option>
+                    <option value="Drinks">Drinks</option>
+                    <option value="Desserts">Desserts</option>
+                  </select>
+                </div>
+
+
+                <!-- Price -->
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Price
+                  </label>
+
+                  <div class="relative">
+
+                    <span class="absolute left-4 top-1/2 -translate-y-1/2 text-sm font-bold text-slate-400">
+                      ৳
+                    </span>
+
+                    <input
+                      name="priceValue"
+                      type="number"
+                      placeholder="399"
+                      class="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-9 pr-4 text-sm outline-none transition focus:border-[#ffb31a] focus:bg-white focus:ring-4 focus:ring-[#ffb31a]/10"
+                    />
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 IMPORTANT: PREPARATION TIME
+            ================================================== -->
+            <div class="rounded-2xl border border-[#ffb31a]/30 bg-[#fffaf0] p-4 sm:p-5">
+
+              <div class="mb-4 flex items-start gap-3">
+
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#ffb31a] text-[#090b0c]">
+                  <i class="fa-solid fa-stopwatch"></i>
+                </div>
+
+                <div>
+                  <h4 class="text-sm font-black">
+                    Preparation Time
+                  </h4>
+
+                  <p class="mt-1 text-xs leading-5 text-slate-500">
+                    This time will be used automatically by the
+                    Live Token queue system.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-700">
+                    Preparation Time
+                  </label>
+
+                  <div class="relative">
+
+                    <input
+                      name="preparationTime"
+                      type="number"
+                      min="1"
+                      placeholder="3"
+                      class="w-full rounded-xl border border-[#f0cf80] bg-white px-4 py-3 pr-16 text-sm font-bold outline-none transition focus:border-[#ffb31a] focus:ring-4 focus:ring-[#ffb31a]/10"
+                    />
+
+                    <span class="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">
+                      minutes
+                    </span>
+
+                  </div>
+                </div>
+
+
+                <div class="rounded-xl bg-white p-4">
+
+                  <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                    Example
+                  </p>
+
+                  <p class="mt-1 text-sm font-black text-slate-700">
+                    Burger → 3 minutes
+                  </p>
+
+                  <p class="mt-1 text-xs leading-5 text-slate-400">
+                    Quantity 3 means approximately 9 minutes.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Description -->
+            <div>
+
+              <label class="mb-2 block text-xs font-bold text-slate-600">
+                Description
+              </label>
+
+              <textarea
+                name="description"
+                rows="4"
+                placeholder="Double beef patties, melted cheese..."
+                class="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-[#ffb31a] focus:bg-white focus:ring-4 focus:ring-[#ffb31a]/10"
+              ></textarea>
+
+            </div>
+
+
+            <!-- Image -->
+            <div>
+
+              <div class="mb-3 flex items-center justify-between">
+
+                <label class="text-xs font-bold text-slate-600">
+                  Product Image
+                </label>
+
+                <span class="text-[11px] font-medium text-slate-400">
+                  URL or filename
+                </span>
+
+              </div>
+
+              <input
+                name="imageSelect"
+                type="text"
+                placeholder="https://images.unsplash.com/..."
+                class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-[#ffb31a] focus:bg-white focus:ring-4 focus:ring-[#ffb31a]/10"
+              />
+
+            </div>
+
+
+            <!-- Image Alt -->
+            <div>
+
+              <label class="mb-2 block text-xs font-bold text-slate-600">
+                Image Alt Text
+              </label>
+
+              <input
+                name="imageAlt"
+                type="text"
+                placeholder="Double Fire Burger with melted cheese"
+                class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-[#ffb31a] focus:bg-white focus:ring-4 focus:ring-[#ffb31a]/10"
+              />
+
+            </div>
+
+
+            <!-- Appearance -->
+            <div>
+
+              <div class="mb-4 flex items-center gap-3">
+
+                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-sm">
+                  <i class="fa-solid fa-palette"></i>
+                </div>
+
+                <div>
+                  <h4 class="text-sm font-black">
+                    Product Appearance
+                  </h4>
+
+                  <p class="text-xs text-slate-400">
+                    Customer-facing visual information
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+                <!-- Badge -->
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Badge Text
+                  </label>
+
+                  <input
+                    name="badgeText"
+                    type="text"
+                    placeholder="HOT & SPICY"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-[#ffb31a] focus:bg-white focus:ring-4 focus:ring-[#ffb31a]/10"
+                  />
+                </div>
+
+
+                <!-- Badge Style -->
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Badge Style
+                  </label>
+
+                  <select
+                    name="badgeStyle"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-[#ffb31a]"
+                  >
+                    <option value="">Select style</option>
+                    <option value="Amber / Gold">Amber / Gold</option>
+                    <option value="Red / Danger">Red / Danger</option>
+                    <option value="Green / Fresh">Green / Fresh</option>
+                    <option value="Dark / Premium">Dark / Premium</option>
+                  </select>
+                </div>
+
+
+                <!-- Hero Label -->
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Hero Label
+                  </label>
+
+                  <input
+                    name="heroLabel"
+                    type="text"
+                    placeholder="Signature Series"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-[#ffb31a]"
+                  />
+                </div>
+
+
+                <!-- Hero Level -->
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Hero Level
+                  </label>
+
+                  <select
+                    name="heroLevel"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-[#ffb31a]"
+                  >
+                    <option value="">Select level</option>
+                    <option value="LOW">LOW</option>
+                    <option value="MEDIUM">MEDIUM</option>
+                    <option value="HIGH">HIGH</option>
+                    <option value="SIGNATURE">SIGNATURE</option>
+                  </select>
+                </div>
+
+
+                <!-- Rating -->
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Rating
+                  </label>
+
+                  <input
+                    name="ratingValue"
+                    type="number"
+                    min="0"
+                    max="5"
+                    step="0.1"
+                    placeholder="4.8"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-[#ffb31a]"
+                  />
+                </div>
+
+
+                <!-- Mini Category -->
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Mini Category
+                  </label>
+
+                  <input
+                    name="miniCategory"
+                    type="text"
+                    placeholder="Spicy"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-[#ffb31a]"
+                  />
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Button Settings -->
+            <div>
+
+              <div class="mb-4 flex items-center gap-3">
+
+                <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-sm">
+                  <i class="fa-solid fa-sliders"></i>
+                </div>
+
+                <div>
+                  <h4 class="text-sm font-black">
+                    Button Settings
+                  </h4>
+
+                  <p class="text-xs text-slate-400">
+                    Configure product action
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Button Text
+                  </label>
+
+                  <input
+                    name="buttonText"
+                    type="text"
+                    value="Add to Cart"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-[#ffb31a]"
+                  />
+                </div>
+
+
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Button Destination
+                  </label>
+
+                  <input
+                    name="buttonDest"
+                    type="text"
+                    value="/cart"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-[#ffb31a]"
+                  />
+                </div>
+
+
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Button Size
+                  </label>
+
+                  <select
+                    name="buttonSize"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-[#ffb31a]"
+                  >
+                    <option value="Compact">Compact</option>
+                    <option value="Normal" selected>Normal</option>
+                    <option value="Large">Large</option>
+                  </select>
+                </div>
+
+
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Button Color
+                  </label>
+
+                  <select
+                    name="buttonColor"
+                    class="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-[#ffb31a]"
+                  >
+                    <option value="Amber Gold">Amber Gold</option>
+                    <option value="Dark Charcoal">Dark Charcoal</option>
+                    <option value="White">White</option>
+                  </select>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Status -->
+            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Product Status
+                  </label>
+
+                  <select
+                    name="productStatus"
+                    class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold outline-none focus:border-[#ffb31a]"
+                  >
+                    <option value="Draft">Draft</option>
+                    <option value="Published">Published</option>
+                    <option value="Hidden">Hidden</option>
+                  </select>
+                </div>
+
+
+                <div>
+                  <label class="mb-2 block text-xs font-bold text-slate-600">
+                    Image Display
+                  </label>
+
+                  <select
+                    name="imageDisplay"
+                    class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none focus:border-[#ffb31a]"
+                  >
+                    <option value="Cover - Fill card image area">
+                      Cover - Fill card image area
+                    </option>
+
+                    <option value="Contain - Fit inside boundary">
+                      Contain - Fit inside boundary
+                    </option>
+                  </select>
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- Form Buttons -->
+            <div class="flex flex-col gap-3 border-t border-slate-200 pt-5 sm:flex-row sm:justify-end">
+
+              <button
+                type="reset"
+                class="rounded-xl border border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 transition hover:bg-slate-50"
+              >
+                Cancel
+              </button>
+
+              <button
+                type="submit"
+                class="rounded-xl bg-[#ffb31a] px-6 py-3 text-sm font-black text-[#090b0c] shadow-sm transition hover:bg-[#ffc044]"
+              >
+                <i class="fa-solid fa-plus mr-2"></i>
+                Save Product
+              </button>
+
+            </div>
+
+          </form>
+
+        </div>
+
+
+        <!-- =================================================
+             LIVE PREVIEW
+        ================================================== -->
+        <aside class="xl:sticky xl:top-24 xl:self-start">
+
+          <div class="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+
+            <div class="mb-5">
+
+              <p class="text-xs font-black uppercase tracking-[0.18em] text-[#d89500]">
+                Live Preview
+              </p>
+
+              <h3 class="mt-1 text-xl font-black">
+                Customer View
+              </h3>
+
+              <p class="mt-1 text-sm text-slate-400">
+                Preview how the product can appear on the menu.
+              </p>
+
+            </div>
+
+
+            <!-- Product Preview -->
+            <article
+              class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
+            >
+
+              <!-- Image -->
+              <div class="relative h-56 overflow-hidden bg-slate-100">
+
+                <img
+                  id="previewCardImage"
+                  src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"
+                  alt="Product preview"
+                  class="h-full w-full object-cover"
+                />
+
+
+                <!-- Badge -->
+                <span
+                  id="previewCardBadge"
+                  class="absolute left-4 top-4 rounded-full bg-[#ffb31a] px-3 py-1.5 text-[10px] font-black uppercase tracking-wider text-[#090b0c]"
+                >
+                  HOT & SPICY
+                </span>
+
+
+                <!-- Rating -->
+                <div
+                  id="previewCardRating"
+                  class="absolute right-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-xs font-black shadow-sm"
+                >
+                  <i class="fa-solid fa-star text-[#ffb31a]"></i>
+                  4.8
+                </div>
+
+              </div>
+
+
+              <!-- Content -->
+              <div class="p-5">
+
+                <div class="mb-2 flex items-center justify-between gap-3">
+
+                  <span
+                    id="previewCardCategory"
+                    class="text-[10px] font-black uppercase tracking-[0.16em] text-[#d89500]"
+                  >
+                    Burgers
+                  </span>
+
+                  <span
+                    id="previewCardMiniCategory"
+                    class="rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-bold text-slate-500"
+                  >
+                    Spicy
+                  </span>
+
+                </div>
+
+
+                <p
+                  id="previewCardHero"
+                  class="text-xs font-bold text-slate-400"
+                >
+                  Signature Series
+                </p>
+
+
+                <h4
+                  id="previewCardTitle"
+                  class="mt-1 text-xl font-black tracking-tight"
+                >
+                  Double Fire Burger
+                </h4>
+
+
+                <p
+                  id="previewCardDesc"
+                  class="mt-2 line-clamp-3 text-sm leading-6 text-slate-500"
+                >
+                  Double beef patties, melted cheese, jalapeños,
+                  and smoky chipotle sauce.
+                </p>
+
+
+                <!-- Preparation Time -->
+                <div class="mt-4 flex items-center gap-2 rounded-xl bg-amber-50 px-3 py-2.5">
+
+                  <i class="fa-solid fa-stopwatch text-[#d89500]"></i>
+
+                  <span class="text-xs font-bold text-slate-600">
+                    Ready in
+                  </span>
+
+                  <span
+                    id="previewCardPreparation"
+                    class="text-xs font-black text-[#d89500]"
+                  >
+                    3 min
+                  </span>
+
+                </div>
+
+
+                <!-- Bottom -->
+                <div class="mt-5 flex items-center justify-between gap-3">
+
+                  <div>
+                    <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                      Price
+                    </p>
+
+                    <p
+                      id="previewCardPrice"
+                      class="text-2xl font-black"
+                    >
+                      ৳399
+                    </p>
+                  </div>
+
+
+                  <button
+                    id="previewCardButton"
+                    type="button"
+                    class="rounded-xl bg-[#ffb31a] px-4 py-3 text-xs font-black text-[#090b0c]"
+                  >
+                    Add to Cart
+                  </button>
+
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- Token Explanation -->
+            <div class="mt-5 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+
+              <div class="flex gap-3">
+
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-[#d89500] shadow-sm">
+                  <i class="fa-solid fa-clock"></i>
+                </div>
+
+                <div>
+
+                  <p class="text-xs font-black">
+                    Used by Live Token
+                  </p>
+
+                  <p class="mt-1 text-xs leading-5 text-slate-500">
+                    Preparation time is used to calculate how long
+                    customers need to wait in the queue.
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </aside>
+
+      </section>
+
+
+      <!-- ===================================================
+           PRODUCT MANAGEMENT
+      ==================================================== -->
+      <section class="mt-6 rounded-3xl border border-slate-200 bg-white shadow-sm">
+
+        <!-- Header -->
+        <div class="border-b border-slate-200 p-5 sm:p-6">
+
+          <div class="flex flex-col justify-between gap-4 lg:flex-row lg:items-center">
+
+            <div>
+              <p class="text-xs font-black uppercase tracking-[0.18em] text-[#d89500]">
+                Menu Inventory
+              </p>
+
+              <h3 class="mt-1 text-xl font-black">
+                Your Products
+              </h3>
+            </div>
+
+
+            <!-- Search -->
+            <div class="flex flex-col gap-3 sm:flex-row">
+
+              <div class="relative">
+
+                <i
+                  class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-xs text-slate-400"
+                ></i>
+
+                <input
+                  id="productSearch"
+                  type="search"
+                  placeholder="Search products..."
+                  class="w-full rounded-xl border border-slate-200 bg-slate-50 py-2.5 pl-10 pr-4 text-sm outline-none focus:border-[#ffb31a] sm:w-64"
+                />
+
+              </div>
+
+
+              <select
+                id="categoryFilter"
+                class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm font-semibold outline-none focus:border-[#ffb31a]"
+              >
+                <option value="">All Categories</option>
+                <option value="Burgers">Burgers</option>
+                <option value="Pizzas">Pizzas</option>
+                <option value="Pasta">Pasta</option>
+                <option value="Chicken">Chicken</option>
+                <option value="Fries">Fries</option>
+                <option value="Drinks">Drinks</option>
+              </select>
+
+
+              <select
+                id="statusFilter"
+                class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm font-semibold outline-none focus:border-[#ffb31a]"
+              >
+                <option value="">All Status</option>
+                <option value="Published">Published</option>
+                <option value="Draft">Draft</option>
+                <option value="Hidden">Hidden</option>
+              </select>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Product List -->
+        <div id="menu_body" class="divide-y divide-slate-100">
+
+          <!-- Product 1 -->
+          <article class="flex flex-col gap-5 p-5 transition hover:bg-slate-50/70 md:flex-row md:items-center sm:p-6">
+
+            <!-- Image -->
+            <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl bg-slate-100">
+
+              <img
+                src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=300&q=80"
+                alt="Double Fire Burger"
+                class="h-full w-full object-cover"
+              />
+
+            </div>
+
+
+            <!-- Product Info -->
+            <div class="min-w-0 flex-1">
+
+              <div class="flex flex-wrap items-center gap-2">
+
+                <h4 class="font-black">
+                  Double Fire Burger
+                </h4>
+
+                <span class="rounded-full bg-green-50 px-2.5 py-1 text-[10px] font-black text-green-600">
+                  Published
+                </span>
+
+              </div>
+
+              <p class="mt-1 line-clamp-1 text-sm text-slate-400">
+                Double beef patties, melted cheese, jalapeños and smoky chipotle sauce.
+              </p>
+
+
+              <div class="mt-3 flex flex-wrap items-center gap-4 text-xs">
+
+                <span class="font-bold text-[#d89500]">
+                  Burgers
+                </span>
+
+                <span class="text-slate-400">
+                  <i class="fa-solid fa-star mr-1 text-[#ffb31a]"></i>
+                  4.8
+                </span>
+
+                <span class="font-bold text-slate-700">
+                  ৳399
+                </span>
+
+                <span class="font-bold text-slate-500">
+                  <i class="fa-solid fa-stopwatch mr-1"></i>
+                  3 min
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <!-- Actions -->
+            <div class="flex items-center gap-2">
+
+              <button
+                type="button"
+                class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-500 transition hover:border-[#ffb31a] hover:text-[#d89500]"
+              >
+                <i class="fa-solid fa-pen"></i>
+              </button>
+
+              <button
+                type="button"
+                class="flex h-10 w-10 items-center justify-center rounded-xl border border-red-100 text-red-500 transition hover:bg-red-50"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <!-- Product 2 -->
+          <article class="flex flex-col gap-5 p-5 transition hover:bg-slate-50/70 md:flex-row md:items-center sm:p-6">
+
+            <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl bg-slate-100">
+
+              <img
+                src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=300&q=80"
+                alt="Creamy Pasta"
+                class="h-full w-full object-cover"
+              />
+
+            </div>
+
+
+            <div class="min-w-0 flex-1">
+
+              <div class="flex flex-wrap items-center gap-2">
+
+                <h4 class="font-black">
+                  Creamy Pasta
+                </h4>
+
+                <span class="rounded-full bg-green-50 px-2.5 py-1 text-[10px] font-black text-green-600">
+                  Published
+                </span>
+
+              </div>
+
+              <p class="mt-1 line-clamp-1 text-sm text-slate-400">
+                Creamy Italian pasta with herbs, cheese and house-made sauce.
+              </p>
+
+
+              <div class="mt-3 flex flex-wrap items-center gap-4 text-xs">
+
+                <span class="font-bold text-[#d89500]">
+                  Pasta
+                </span>
+
+                <span class="text-slate-400">
+                  <i class="fa-solid fa-star mr-1 text-[#ffb31a]"></i>
+                  4.7
+                </span>
+
+                <span class="font-bold text-slate-700">
+                  ৳320
+                </span>
+
+                <span class="font-bold text-slate-500">
+                  <i class="fa-solid fa-stopwatch mr-1"></i>
+                  2 min
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="flex items-center gap-2">
+
+              <button
+                type="button"
+                class="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-slate-500 hover:border-[#ffb31a] hover:text-[#d89500]"
+              >
+                <i class="fa-solid fa-pen"></i>
+              </button>
+
+              <button
+                type="button"
+                class="flex h-10 w-10 items-center justify-center rounded-xl border border-red-100 text-red-500 hover:bg-red-50"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+
+            </div>
+
+          </article>
+
+
+          <!-- Empty State -->
+          <div
+            id="emptyState"
+            class="hidden px-6 py-16 text-center"
+          >
+
+            <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-slate-400">
+              <i class="fa-solid fa-box-open text-xl"></i>
+            </div>
+
+            <h4 class="mt-4 font-black">
+              No products found
+            </h4>
+
+            <p class="mt-1 text-sm text-slate-400">
+              Try changing your search or filter.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ===================================================
+           TOKEN SYSTEM INFO
+      ==================================================== -->
+      <section class="mt-6 rounded-3xl bg-[#090b0c] p-6 text-white shadow-sm sm:p-8">
+
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+
+          <div>
+
+            <div class="mb-3 flex items-center gap-3">
+
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-[#ffb31a] text-[#090b0c]">
+                <i class="fa-solid fa-clock"></i>
+              </div>
+
+              <p class="text-xs font-black uppercase tracking-[0.2em] text-[#ffb31a]">
+                Live Token System
+              </p>
+
+            </div>
+
+            <h3 class="text-2xl font-black tracking-tight">
+              Preparation time controls the queue.
+            </h3>
+
+            <p class="mt-3 max-w-2xl text-sm leading-6 text-slate-400">
+              Each product's preparation time is used to calculate the
+              waiting time for customers. If a customer orders 3 burgers
+              and one burger takes 3 minutes, the system can calculate
+              approximately 9 minutes for that order.
+            </p>
+
+          </div>
+
+
+          <div class="grid grid-cols-3 gap-3">
+
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">
+              <p class="text-2xl font-black text-[#ffb31a]">
+                3m
+              </p>
+              <p class="mt-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                Burger
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">
+              <p class="text-2xl font-black text-[#ffb31a]">
+                2m
+              </p>
+              <p class="mt-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                Pasta
+              </p>
+            </div>
+
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">
+              <p class="text-2xl font-black text-[#ffb31a]">
+                5m
+              </p>
+              <p class="mt-1 text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                Pizza
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- Footer -->
+      <footer class="py-8 text-center">
+
+        <p class="text-xs font-medium text-slate-400">
+          BurgerBite Admin Dashboard
+          <span class="mx-1">•</span>
+          Menu Management
+        </p>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script type="module" src="./src/main.ts"></script>
+</body>
+</html>

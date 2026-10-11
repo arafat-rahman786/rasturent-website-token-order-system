@@ -1,0 +1,1025 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#faf9f6" />
+  <link rel="stylesheet" href="./src/style.css">
+  <title>Request Token | Hero Food</title>
+</head>
+
+<body class="min-h-screen bg-[#faf9f6] text-[#0a0907] antialiased">
+
+  <!-- ================= HEADER ================= -->
+  <header class="sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+
+      <a href="index.html" class="flex shrink-0 items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#f0a400] text-2xl font-black text-[#0a0907]">
+          H
+        </div>
+
+        <div>
+          <h1 class="text-lg font-black tracking-tight sm:text-xl">
+            HERO FOOD
+          </h1>
+          <p class="mt-0.5 text-[9px] font-bold uppercase tracking-[0.25em] text-gray-400">
+            Taste the happiness
+          </p>
+        </div>
+      </a>
+
+      <nav class="hidden items-center gap-7 text-sm font-semibold lg:flex">
+        <a href="index.html" class="transition hover:text-[#d99500]">Home</a>
+        <a href="menu.html" class="transition hover:text-[#d99500]">Our Menu</a>
+        <a href="about.html" class="transition hover:text-[#d99500]">About Us</a>
+        <a href="contact.html" class="transition hover:text-[#d99500]">Contact</a>
+      </nav>
+
+      <a href="cart.html"
+        class="inline-flex shrink-0 items-center gap-2 rounded-xl border border-black/10 px-3 py-2.5 text-xs font-bold transition hover:border-[#f0a400] sm:px-4 sm:text-sm">
+        <svg class="h-4 w-4" fill="none" stroke="currentColor"
+          viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            stroke-width="2" d="M19 12H5m7 7-7-7 7-7"/>
+        </svg>
+        <span>Back to Cart</span>
+      </a>
+
+    </div>
+  </header>
+
+
+  <!-- ================= PAGE INTRO ================= -->
+  <section class="border-b border-black/5 bg-white">
+    <div class="mx-auto max-w-7xl px-4 py-9 sm:px-6 sm:py-12 lg:px-8">
+
+      <div class="mb-6 flex flex-wrap items-center gap-2 text-xs font-medium text-gray-400 sm:text-sm">
+        <a href="index.html" class="transition hover:text-black">Home</a>
+        <span>/</span>
+        <a href="cart.html" class="transition hover:text-black">Cart</a>
+        <span>/</span>
+        <span class="font-bold text-[#0a0907]">Token Request</span>
+      </div>
+
+      <div class="grid grid-cols-1 items-end gap-6 md:grid-cols-12">
+
+        <div class="md:col-span-8">
+          <span class="mb-4 inline-flex items-center gap-2 rounded-full bg-[#fff3cf] px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#8a5a00]">
+            <span class="h-1.5 w-1.5 rounded-full bg-[#f0a400]"></span>
+            One step away
+          </span>
+
+          <h2 class="max-w-3xl text-3xl font-black leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+            How would you like to
+            <span class="text-[#d99500]">order?</span>
+          </h2>
+
+          <p class="mt-4 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base">
+            Choose parcel delivery for your doorstep or book a table
+            and enjoy your favorite food at our restaurant.
+          </p>
+        </div>
+
+        <div class="md:col-span-4 md:justify-self-end">
+          <div class="flex items-center gap-3 rounded-2xl border border-black/5 bg-[#faf9f6] p-4">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#f0a400]/15 text-[#a86e00]">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="1.8"
+                  d="M12 8v4l3 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-extrabold">Easy & Convenient</p>
+              <p class="mt-1 text-xs text-gray-400">Your order, your choice</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+
+    <div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-10">
+
+
+      <!-- ================= LEFT: FORM ================= -->
+      <section class="min-w-0 lg:col-span-7">
+
+        <!-- Order Type Selection -->
+        <div class="mb-6">
+
+          <div class="mb-4">
+            <p class="text-xs font-extrabold uppercase tracking-[0.18em] text-[#b47c0a]">
+              Step 01
+            </p>
+            <h3 class="mt-2 text-xl font-black sm:text-2xl">
+              Choose your order type
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-gray-500">
+              Select one option to continue with your token request.
+            </p>
+          </div>
+
+          <div id="orderTypeSelector" class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+            <!-- Parcel Option -->
+            <button
+              type="button"
+              id="parcelOption"
+              data-order-type="parcel"
+              aria-pressed="false"
+              class="group relative flex min-h-44 flex-col items-start overflow-hidden rounded-2xl border-2 border-gray-200 bg-white p-5 text-left transition duration-300 hover:-translate-y-1 hover:border-[#f0a400] hover:shadow-xl hover:shadow-[#f0a400]/10 sm:p-6">
+
+              <div class="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-[#f0a400]/10 transition group-hover:scale-125"></div>
+
+              <div class="relative flex w-full items-start justify-between gap-3">
+                <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fff3cf] text-[#986400]">
+                  <svg class="h-7 w-7" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="1.7"
+                      d="M3 7.5L12 3l9 4.5v9L12 21l-9-4.5v-9zM3.5 7.7L12 12l8.5-4.3M12 12v9M7.5 5.3l9 4.6"/>
+                  </svg>
+                </div>
+
+                <span id="parcelSelectedMark"
+                  class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-gray-300 text-transparent">
+                  <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="3" d="m5 12 4 4L19 6"/>
+                  </svg>
+                </span>
+              </div>
+
+              <div class="relative mt-5">
+                <h4 class="text-lg font-black">Parcel Delivery</h4>
+                <p class="mt-2 text-sm leading-6 text-gray-500">
+                  Get your favorite food delivered to your doorstep.
+                </p>
+              </div>
+
+              <span class="relative mt-4 inline-flex items-center gap-2 text-xs font-extrabold text-[#a16a00]">
+                Choose delivery
+                <span>→</span>
+              </span>
+            </button>
+
+
+            <!-- Table Booking Option -->
+            <button
+              type="button"
+              id="tableBookOption"
+              data-order-type="table"
+              aria-pressed="false"
+              class="group relative flex min-h-44 flex-col items-start overflow-hidden rounded-2xl border-2 border-gray-200 bg-white p-5 text-left transition duration-300 hover:-translate-y-1 hover:border-[#f0a400] hover:shadow-xl hover:shadow-[#f0a400]/10 sm:p-6">
+
+              <div class="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-[#f0a400]/10 transition group-hover:scale-125"></div>
+
+              <div class="relative flex w-full items-start justify-between gap-3">
+                <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fff3cf] text-[#986400]">
+                  <svg class="h-7 w-7" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="1.7"
+                      d="M3 11h18M5 11V7a2 2 0 012-2h10a2 2 0 012 2v4M5 11v8m14-8v8M3 19h18M8 5V3m8 2V3"/>
+                  </svg>
+                </div>
+
+                <span id="tableSelectedMark"
+                  class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-gray-300 text-transparent">
+                  <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      stroke-width="3" d="m5 12 4 4L19 6"/>
+                  </svg>
+                </span>
+              </div>
+
+              <div class="relative mt-5">
+                <h4 class="text-lg font-black">Table Book</h4>
+                <p class="mt-2 text-sm leading-6 text-gray-500">
+                  Reserve your place and enjoy food at our restaurant.
+                </p>
+              </div>
+
+              <span class="relative mt-4 inline-flex items-center gap-2 text-xs font-extrabold text-[#a16a00]">
+                Reserve a table
+                <span>→</span>
+              </span>
+            </button>
+
+          </div>
+        </div>
+
+
+        <!-- Default Empty State -->
+        <div id="orderTypePlaceholder"
+          class="rounded-3xl border border-dashed border-gray-300 bg-white px-6 py-12 text-center sm:px-10 sm:py-16">
+
+          <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-[#fff3cf] text-[#a16a00]">
+            <svg class="h-8 w-8" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="1.8"
+                d="M8 7V3m8 4V3M4 11h16M5 5h14a1 1 0 011 1v13H4V6a1 1 0 011-1z"/>
+            </svg>
+          </div>
+
+          <h3 class="mt-5 text-lg font-black">Your choice, your experience</h3>
+
+          <p class="mx-auto mt-2 max-w-sm text-sm leading-6 text-gray-500">
+            Choose Parcel Delivery or Table Book above.
+            Your relevant form will appear here.
+          </p>
+
+        </div>
+
+
+        <!-- ================================================= -->
+        <!-- PARCEL DELIVERY FORM: HIDDEN UNTIL PARCEL SELECTED -->
+        <!-- ================================================= -->
+        <section id="parcelFormSection"
+          class="hidden overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm">
+
+          <div class="border-b border-black/5 bg-gradient-to-r from-[#fffaf0] to-white px-5 py-6 sm:px-8">
+            <div class="flex items-center gap-4">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#f0a400] text-[#0a0907]">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="1.8"
+                    d="M3 7.5L12 3l9 4.5v9L12 21l-9-4.5v-9zM3.5 7.7L12 12l8.5-4.3M12 12v9"/>
+                </svg>
+              </div>
+
+              <div>
+                <span class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#a16a00]">
+                  Parcel delivery
+                </span>
+                <h3 class="mt-1 text-xl font-black">Delivery Information</h3>
+                <p class="mt-1 text-sm text-gray-500">
+                  Where should we deliver your order?
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <form id="parcelTokenForm" class="space-y-7 p-5 sm:p-8">
+
+            <!-- Contact Information -->
+            <div>
+              <div class="mb-5 flex items-center gap-3">
+                <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-[#fff3cf] text-xs font-black text-[#986400]">01</span>
+                <h4 class="text-sm font-extrabold">Personal Information</h4>
+              </div>
+
+              <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+
+                <div>
+                  <label for="parcelCustomerName" class="mb-2 block text-sm font-bold">
+                    Full Name <span class="text-red-500">*</span>
+                  </label>
+                  <input id="parcelCustomerName" name="customerName"
+                    type="text" autocomplete="name" required
+                    placeholder="Enter your full name"
+                    class="w-full rounded-xl border border-gray-200 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition placeholder:text-gray-400 focus:border-[#f0a400] focus:bg-white focus:ring-4 focus:ring-[#f0a400]/10"/>
+                </div>
+
+                <div>
+                  <label for="parcelPhone" class="mb-2 block text-sm font-bold">
+                    Phone Number <span class="text-red-500">*</span>
+                  </label>
+                  <input id="parcelPhone" name="phone" type="tel"
+                    autocomplete="tel" required placeholder="01XXXXXXXXX"
+                    class="w-full rounded-xl border border-gray-200 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition placeholder:text-gray-400 focus:border-[#f0a400] focus:bg-white focus:ring-4 focus:ring-[#f0a400]/10"/>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="parcelEmail" class="mb-2 block text-sm font-bold">
+                    Email Address
+                    <span class="font-normal text-gray-400">(Optional)</span>
+                  </label>
+                  <input id="parcelEmail" name="email" type="email"
+                    autocomplete="email" placeholder="you@example.com"
+                    class="w-full rounded-xl border border-gray-200 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition placeholder:text-gray-400 focus:border-[#f0a400] focus:bg-white focus:ring-4 focus:ring-[#f0a400]/10"/>
+                </div>
+
+              </div>
+            </div>
+
+
+            <!-- Delivery Address -->
+            <div class="border-t border-black/5 pt-7">
+
+              <div class="mb-5 flex items-center gap-3">
+                <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-[#fff3cf] text-xs font-black text-[#986400]">02</span>
+                <div>
+                  <h4 class="text-sm font-extrabold">Delivery Address</h4>
+                  <p class="mt-1 text-xs text-gray-400">Enter your address or use your current location.</p>
+                </div>
+              </div>
+
+              <div class="space-y-5">
+
+                <div>
+                  <label for="parcelDistrict" class="mb-2 block text-sm font-bold">
+                    District <span class="text-red-500">*</span>
+                  </label>
+
+                  <select id="parcelDistrict" name="district" required
+                    class="w-full rounded-xl border border-gray-200 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition focus:border-[#f0a400] focus:bg-white focus:ring-4 focus:ring-[#f0a400]/10">
+                    <option value="" selected disabled>Select your district</option>
+                    <option value="Dhaka">Dhaka</option>
+                    <option value="Gazipur">Gazipur</option>
+                    <option value="Narayanganj">Narayanganj</option>
+                    <option value="Other">Other District</option>
+                  </select>
+                </div>
+
+
+                <!-- Full Address + Location Button -->
+                <div>
+                  <div class="mb-2 flex flex-wrap items-center justify-between gap-3">
+                    <label for="parcelAddress" class="text-sm font-bold">
+                      Full Address <span class="text-red-500">*</span>
+                    </label>
+
+                    <button type="button" id="useCurrentLocation"
+                      class="inline-flex items-center gap-2 rounded-xl border border-[#f0a400]/40 bg-[#fffaf0] px-3 py-2 text-xs font-extrabold text-[#946100] transition hover:border-[#f0a400] hover:bg-[#fff0c2]">
+                      <svg class="h-4 w-4" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="1.8"
+                          d="M12 21s7-5.5 7-12a7 7 0 10-14 0c0 6.5 7 12 7 12z"/>
+                        <circle cx="12" cy="9" r="2.3" stroke-width="1.8"/>
+                      </svg>
+                      Use My Current Location
+                    </button>
+                  </div>
+
+                  <textarea id="parcelAddress" name="address"
+                    rows="4" required autocomplete="street-address"
+                    placeholder="House number, road, area, landmark..."
+                    class="w-full resize-y rounded-xl border border-gray-200 bg-[#faf9f6] px-4 py-3.5 text-sm leading-6 outline-none transition placeholder:text-gray-400 focus:border-[#f0a400] focus:bg-white focus:ring-4 focus:ring-[#f0a400]/10"></textarea>
+
+                  <p class="mt-2 text-xs leading-5 text-gray-400">
+                    You can enter your address manually or allow your browser
+                    to access your location.
+                  </p>
+                </div>
+
+
+                <!-- Coordinates -->
+                <div id="locationDetails"
+                  class="hidden rounded-2xl border border-green-200 bg-green-50 p-4">
+
+                  <div class="flex items-start gap-3">
+                    <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-green-700">
+                      <svg class="h-5 w-5" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          stroke-width="2" d="m5 12 4 4L19 6"/>
+                      </svg>
+                    </div>
+
+                    <div class="min-w-0 flex-1">
+                      <p class="text-sm font-extrabold text-green-800">
+                        Location Selected
+                      </p>
+                      <p id="locationStatus" class="mt-1 text-xs leading-5 text-green-700">
+                        Your coordinates will appear here after location access.
+                      </p>
+
+                      <div class="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                        <div>
+                          <label for="latitude" class="mb-1 block text-xs font-bold text-green-800">
+                            Latitude
+                          </label>
+                          <input id="latitude" name="latitude" type="text"
+                            readonly placeholder="Not selected"
+                            class="w-full rounded-lg border border-green-200 bg-white px-3 py-2 text-xs outline-none"/>
+                        </div>
+
+                        <div>
+                          <label for="longitude" class="mb-1 block text-xs font-bold text-green-800">
+                            Longitude
+                          </label>
+                          <input id="longitude" name="longitude" type="text"
+                            readonly placeholder="Not selected"
+                            class="w-full rounded-lg border border-green-200 bg-white px-3 py-2 text-xs outline-none"/>
+                        </div>
+                      </div>
+
+                      <a id="googleMapsLink" href="https://maps.google.com/"
+                        target="_blank" rel="noopener noreferrer"
+                        class="mt-3 inline-flex items-center gap-2 text-xs font-extrabold text-green-800 underline underline-offset-4">
+                        View on Google Maps ↗
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div>
+                  <label for="deliveryNote" class="mb-2 block text-sm font-bold">
+                    Delivery Instructions
+                    <span class="font-normal text-gray-400">(Optional)</span>
+                  </label>
+                  <textarea id="deliveryNote" name="deliveryNote" rows="2"
+                    placeholder="Floor number, gate, or other instructions..."
+                    class="w-full resize-y rounded-xl border border-gray-200 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition placeholder:text-gray-400 focus:border-[#f0a400] focus:bg-white focus:ring-4 focus:ring-[#f0a400]/10"></textarea>
+                </div>
+
+              </div>
+            </div>
+
+
+            <!-- Payment Method -->
+            <div class="border-t border-black/5 pt-7">
+              <div class="mb-5 flex items-center gap-3">
+                <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-[#fff3cf] text-xs font-black text-[#986400]">03</span>
+                <h4 class="text-sm font-extrabold">Payment Method</h4>
+              </div>
+
+              <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+
+                <label class="flex cursor-pointer items-center gap-3 rounded-2xl border border-[#f0a400] bg-[#fffaf0] p-4 transition hover:bg-[#fff3cf]">
+                  <input type="radio" name="paymentMethod"
+                    value="Cash on Delivery" checked
+                    class="h-4 w-4 accent-[#f0a400]"/>
+                  <div>
+                    <p class="text-sm font-extrabold">Cash on Delivery</p>
+                    <p class="mt-1 text-xs text-gray-500">Pay when you receive</p>
+                  </div>
+                </label>
+
+                <label class="flex cursor-pointer items-center gap-3 rounded-2xl border border-gray-200 bg-white p-4 transition hover:border-[#f0a400] hover:bg-[#fffaf0]">
+                  <input type="radio" name="paymentMethod"
+                    value="Online Payment"
+                    class="h-4 w-4 accent-[#f0a400]"/>
+                  <div>
+                    <p class="text-sm font-extrabold">Online Payment</p>
+                    <p class="mt-1 text-xs text-gray-500">Choose online payment</p>
+                  </div>
+                </label>
+
+              </div>
+            </div>
+
+
+            <!-- Submit Parcel -->
+            <div class="border-t border-black/5 pt-7">
+
+              <label class="mb-5 flex cursor-pointer items-start gap-3">
+                <input type="checkbox" name="confirmDetails" required
+                  class="mt-1 h-4 w-4 accent-[#f0a400]"/>
+                <span class="text-xs leading-6 text-gray-500">
+                  I confirm that my contact information and delivery address
+                  are correct.
+                </span>
+              </label>
+
+              <button type="submit" id="parcelSubmitButton"
+                class="flex w-full items-center justify-center gap-3 rounded-2xl bg-[#f0a400] px-5 py-4 text-sm font-black text-[#0a0907] shadow-lg shadow-[#f0a400]/15 transition hover:-translate-y-0.5 hover:bg-[#ffb900] hover:shadow-xl">
+                Request Parcel Token
+                <svg class="h-5 w-5" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" d="M5 12h14m-7-7 7 7-7 7"/>
+                </svg>
+              </button>
+
+              <p class="mt-4 text-center text-xs leading-5 text-gray-400">
+                Your token will be generated after your request is processed.
+              </p>
+
+            </div>
+
+          </form>
+        </section>
+
+
+        <!-- ============================================== -->
+        <!-- TABLE BOOK FORM: HIDDEN UNTIL TABLE IS SELECTED -->
+        <!-- ============================================== -->
+        <section id="tableBookFormSection"
+          class="hidden overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm">
+
+          <div class="border-b border-black/5 bg-gradient-to-r from-[#fffaf0] to-white px-5 py-6 sm:px-8">
+            <div class="flex items-center gap-4">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#f0a400] text-[#0a0907]">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="1.8"
+                    d="M3 11h18M5 11V7a2 2 0 012-2h10a2 2 0 012 2v4M5 11v8m14-8v8M3 19h18"/>
+                </svg>
+              </div>
+
+              <div>
+                <span class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#a16a00]">
+                  Dine in
+                </span>
+                <h3 class="mt-1 text-xl font-black">Reserve Your Table</h3>
+                <p class="mt-1 text-sm text-gray-500">
+                  A few details to prepare your visit.
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <form id="tableBookForm" class="space-y-7 p-5 sm:p-8">
+
+            <!-- Customer Info -->
+            <div>
+              <div class="mb-5 flex items-center gap-3">
+                <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-[#fff3cf] text-xs font-black text-[#986400]">01</span>
+                <h4 class="text-sm font-extrabold">Your Information</h4>
+              </div>
+
+              <div class="space-y-5">
+
+                <div>
+                  <label for="tableCustomerName" class="mb-2 block text-sm font-bold">
+                    Full Name <span class="text-red-500">*</span>
+                  </label>
+                  <input id="tableCustomerName" name="customerName"
+                    type="text" autocomplete="name" required
+                    placeholder="Enter your full name"
+                    class="w-full rounded-xl border border-gray-200 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition placeholder:text-gray-400 focus:border-[#f0a400] focus:bg-white focus:ring-4 focus:ring-[#f0a400]/10"/>
+                </div>
+
+                <div>
+                  <label for="tablePhone" class="mb-2 block text-sm font-bold">
+                    Phone Number <span class="text-red-500">*</span>
+                  </label>
+                  <input id="tablePhone" name="phone" type="tel"
+                    autocomplete="tel" required placeholder="01XXXXXXXXX"
+                    class="w-full rounded-xl border border-gray-200 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition placeholder:text-gray-400 focus:border-[#f0a400] focus:bg-white focus:ring-4 focus:ring-[#f0a400]/10"/>
+                </div>
+
+                <div>
+                  <label for="tableEmail" class="mb-2 block text-sm font-bold">
+                    Email Address
+                    <span class="font-normal text-gray-400">(Optional)</span>
+                  </label>
+                  <input id="tableEmail" name="email" type="email"
+                    autocomplete="email" placeholder="you@example.com"
+                    class="w-full rounded-xl border border-gray-200 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition placeholder:text-gray-400 focus:border-[#f0a400] focus:bg-white focus:ring-4 focus:ring-[#f0a400]/10"/>
+                </div>
+
+              </div>
+            </div>
+
+
+            <!-- Reservation Details -->
+            <div class="border-t border-black/5 pt-7">
+
+              <div class="mb-5 flex items-center gap-3">
+                <span class="flex h-8 w-8 items-center justify-center rounded-xl bg-[#fff3cf] text-xs font-black text-[#986400]">02</span>
+                <h4 class="text-sm font-extrabold">Reservation Details</h4>
+              </div>
+
+              <div class="space-y-5">
+
+                <div>
+                  <label for="guestCount" class="mb-2 block text-sm font-bold">
+                    Number of Guests <span class="text-red-500">*</span>
+                  </label>
+
+                  <select id="guestCount" name="guestCount" required
+                    class="w-full rounded-xl border border-gray-200 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition focus:border-[#f0a400] focus:bg-white focus:ring-4 focus:ring-[#f0a400]/10">
+                    <option value="" selected disabled>Select number of guests</option>
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5 Guests</option>
+                    <option value="6">6 Guests</option>
+                    <option value="7">7 Guests</option>
+                    <option value="8">8 Guests</option>
+                    <option value="9">9 Guests</option>
+                    <option value="10">10 Guests</option>
+                    <option value="10+">More than 10</option>
+                  </select>
+                </div>
+
+                <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+
+                  <div>
+                    <label for="bookingDate" class="mb-2 block text-sm font-bold">
+                      Booking Date <span class="text-red-500">*</span>
+                    </label>
+                    <input id="bookingDate" name="bookingDate"
+                      type="date" required
+                      class="w-full min-w-0 rounded-xl border border-gray-200 bg-[#faf9f6] px-3 py-3.5 text-sm outline-none transition focus:border-[#f0a400] focus:bg-white focus:ring-4 focus:ring-[#f0a400]/10"/>
+                  </div>
+
+                  <div>
+                    <label for="bookingTime" class="mb-2 block text-sm font-bold">
+                      Booking Time <span class="text-red-500">*</span>
+                    </label>
+                    <select id="bookingTime" name="bookingTime" required
+                      class="w-full min-w-0 rounded-xl border border-gray-200 bg-[#faf9f6] px-3 py-3.5 text-sm outline-none transition focus:border-[#f0a400] focus:bg-white focus:ring-4 focus:ring-[#f0a400]/10">
+                      <option value="" selected disabled>Select time</option>
+                      <option value="12:00">12:00 PM</option>
+                      <option value="13:00">1:00 PM</option>
+                      <option value="14:00">2:00 PM</option>
+                      <option value="15:00">3:00 PM</option>
+                      <option value="16:00">4:00 PM</option>
+                      <option value="17:00">5:00 PM</option>
+                      <option value="18:00">6:00 PM</option>
+                      <option value="19:00">7:00 PM</option>
+                      <option value="20:00">8:00 PM</option>
+                      <option value="21:00">9:00 PM</option>
+                    </select>
+                  </div>
+
+                </div>
+
+                <div>
+                  <label for="tableNote" class="mb-2 block text-sm font-bold">
+                    Special Request
+                    <span class="font-normal text-gray-400">(Optional)</span>
+                  </label>
+                  <textarea id="tableNote" name="specialRequest" rows="3"
+                    placeholder="Any seating preferences or special requests?"
+                    class="w-full resize-y rounded-xl border border-gray-200 bg-[#faf9f6] px-4 py-3.5 text-sm leading-6 outline-none transition placeholder:text-gray-400 focus:border-[#f0a400] focus:bg-white focus:ring-4 focus:ring-[#f0a400]/10"></textarea>
+                </div>
+
+              </div>
+            </div>
+
+
+            <!-- Submit Table -->
+            <div class="border-t border-black/5 pt-7">
+
+              <label class="mb-5 flex cursor-pointer items-start gap-3">
+                <input type="checkbox" name="confirmBooking" required
+                  class="mt-1 h-4 w-4 accent-[#f0a400]"/>
+                <span class="text-xs leading-6 text-gray-500">
+                  I confirm that my contact information and reservation details
+                  are correct.
+                </span>
+              </label>
+
+              <button type="submit" id="tableSubmitButton"
+                class="flex w-full items-center justify-center gap-3 rounded-2xl bg-[#f0a400] px-5 py-4 text-sm font-black text-[#0a0907] shadow-lg shadow-[#f0a400]/15 transition hover:-translate-y-0.5 hover:bg-[#ffb900] hover:shadow-xl">
+                Generate Table Token
+                <a href="./live-token.html">
+                  <svg class="h-5 w-5" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="2" d="M5 12h14m-7-7 7 7-7 7"/>
+                </svg>
+                </a>
+              </button>
+
+              <p class="mt-4 text-center text-xs leading-5 text-gray-400">
+                Your reservation request will be submitted for processing.
+              </p>
+
+            </div>
+
+          </form>
+        </section>
+
+
+        <!-- Token Result: HIDDEN UNTIL TOKEN IS GENERATED -->
+        <section id="tokenResultSection"
+          class="hidden mt-6 overflow-hidden rounded-3xl border border-green-200 bg-white shadow-sm">
+
+          <div class="bg-green-50 px-6 py-8 text-center sm:px-10">
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-green-700">
+              <svg class="h-9 w-9" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="2.5" d="m5 12 4 4L19 6"/>
+              </svg>
+            </div>
+
+            <p class="mt-5 text-xs font-extrabold uppercase tracking-[0.2em] text-green-700">
+              Request Submitted
+            </p>
+            <h3 id="tokenResultTitle" class="mt-2 text-2xl font-black">
+              Your Token is Ready!
+            </h3>
+            <p id="tokenResultMessage" class="mt-2 text-sm leading-6 text-gray-500">
+              Keep your token number for future reference.
+            </p>
+
+            <div class="mx-auto mt-6 max-w-sm rounded-2xl border border-dashed border-green-300 bg-white p-6">
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-gray-400">
+                Your Serial Number
+              </p>
+              <p id="generatedTokenNumber"
+                class="mt-3 break-words text-3xl font-black tracking-wider text-[#a16a00]">
+                TOKEN-0001
+              </p>
+            </div>
+
+            <div class="mt-6 flex flex-wrap justify-center gap-3">
+              <button type="button" id="printTokenButton"
+                class="inline-flex items-center gap-2 rounded-xl bg-[#0a0907] px-5 py-3 text-sm font-bold text-white transition hover:bg-black/80">
+                Print Token
+              </button>
+
+              <a href="index.html"
+                class="inline-flex items-center gap-2 rounded-xl border border-black/10 bg-white px-5 py-3 text-sm font-bold transition hover:border-[#f0a400]">
+                Back to Home
+              </a>
+            </div>
+          </div>
+
+        </section>
+
+      </section>
+
+
+
+      <!-- ================= RIGHT: ORDER SUMMARY ================= -->
+      <aside class="min-w-0 lg:sticky lg:top-24 lg:col-span-5">
+
+        <div class="overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm">
+
+          <!-- Summary Header -->
+          <div class="relative overflow-hidden bg-[#0a0907] px-5 py-6 text-white sm:px-7">
+            <div class="absolute -right-10 -top-14 h-40 w-40 rounded-full bg-[#f0a400]/10"></div>
+
+            <div class="relative flex items-center justify-between gap-3">
+              <div>
+                <span class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#f0a400]">
+                  Your selection
+                </span>
+                <h3 class="mt-2 text-2xl font-black">Order Summary</h3>
+                <p class="mt-1 text-sm text-white/50">
+                  Review your selected food items.
+                </p>
+              </div>
+
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-[#f0a400]">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="1.8"
+                    d="M3 3h2l2.4 12.2a2 2 0 002 1.6h8.8a2 2 0 002-1.6L22 7H6m4 14a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Item Count -->
+          <div class="flex items-center justify-between border-b border-black/5 px-5 py-4 sm:px-7">
+            <p class="text-sm font-bold">Cart Items</p>
+            <span id="summaryItemCount"
+              class="rounded-full bg-[#fff3cf] px-3 py-1 text-xs font-extrabold text-[#8a5a00]">
+              0 items
+            </span>
+          </div>
+
+
+          <!-- Dynamic Cart Products -->
+          <div id="tokenOrderItems" class="divide-y divide-gray-100 px-5 sm:px-7">
+
+            <!--
+              JavaScript:
+              1. GET /carts থেকে cart data আনবে।
+              2. প্রতিটি item-এর existing Product ও quantity পড়বে।
+              3. এই container-এর মধ্যে প্রতিটি product render করবে।
+              4. Unit price × quantity করে line total দেখাবে।
+            -->
+
+            <!-- Static preview for UI only; replace with API data. -->
+            <article class="flex gap-4 py-5">
+              <div class="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-[#fff3cf]">
+                <svg class="h-10 w-10 text-[#a16a00]" fill="none" stroke="currentColor"
+                  viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    stroke-width="1.6"
+                    d="M4 10h16l-1 8H5l-1-8zm1-3h14l1 3H4l1-3zm3-3h8l2 3H6l2-3z"/>
+                </svg>
+              </div>
+
+              <div class="min-w-0 flex-1">
+                <h4 class="text-sm font-extrabold leading-5">Your Cart Product</h4>
+                <p class="mt-1 text-xs text-gray-400">Product category</p>
+                <p class="mt-3 text-xs font-semibold text-gray-500">
+                  ৳350 × 2
+                </p>
+              </div>
+
+              <p class="shrink-0 pt-1 text-sm font-black">৳700</p>
+            </article>
+
+            <div id="emptyCartMessage" class="hidden py-10 text-center">
+              <p class="text-sm font-bold">Your cart is empty.</p>
+              <a href="menu.html" class="mt-3 inline-block text-sm font-bold text-[#a16a00] underline underline-offset-4">
+                Explore our menu
+              </a>
+            </div>
+
+          </div>
+
+
+          <!-- Coupon -->
+          <div class="mx-5 border-t border-dashed border-gray-200 pt-5 sm:mx-7">
+            <label for="couponCode" class="mb-3 block text-sm font-extrabold">
+              Have a coupon code?
+            </label>
+
+            <div class="flex gap-2">
+              <input id="couponCode" name="couponCode" type="text"
+                placeholder="Enter coupon code"
+                class="min-w-0 flex-1 rounded-xl border border-gray-200 bg-[#faf9f6] px-3 py-3 text-sm outline-none transition placeholder:text-gray-400 focus:border-[#f0a400] sm:px-4"/>
+
+              <button id="applyCouponButton" type="button"
+                class="shrink-0 rounded-xl bg-[#0a0907] px-4 py-3 text-xs font-extrabold text-white transition hover:bg-[#29251d] sm:px-5 sm:text-sm">
+                Apply
+              </button>
+            </div>
+
+            <p id="couponMessage" class="mt-2 hidden text-xs"></p>
+          </div>
+
+
+          <!-- Price Breakdown -->
+          <div class="space-y-4 p-5 sm:p-7">
+
+            <div class="flex items-center justify-between gap-3 text-sm">
+              <span class="text-gray-500">Subtotal</span>
+              <span id="summarySubtotal" class="font-bold">৳0.00</span>
+            </div>
+
+            <div class="flex items-center justify-between gap-3 text-sm">
+              <span class="text-gray-500">Delivery Charge</span>
+              <span id="summaryDelivery" class="font-bold">৳0.00</span>
+            </div>
+
+            <div class="flex items-center justify-between gap-3 text-sm">
+              <span class="text-gray-500">Tax</span>
+              <span id="summaryTax" class="font-bold">৳0.00</span>
+            </div>
+
+            <div id="discountRow"
+              class="hidden flex items-center justify-between gap-3 text-sm">
+              <span class="text-green-700">Discount</span>
+              <span id="summaryDiscount" class="font-bold text-green-700">−৳0.00</span>
+            </div>
+
+            <div class="border-t border-dashed border-gray-200 pt-5">
+              <div class="flex items-start justify-between gap-3">
+                <div>
+                  <h4 class="text-base font-black">Grand Total</h4>
+                  <p class="mt-1 text-xs leading-5 text-gray-400">
+                    Including applicable charges
+                  </p>
+                </div>
+
+                <p id="summaryGrandTotal"
+                  class="shrink-0 text-2xl font-black tracking-tight text-[#d99500] sm:text-3xl">
+                  ৳0.00
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+
+          <!-- Summary Notice -->
+          <div class="mx-5 mb-5 rounded-2xl bg-[#faf9f6] p-4 sm:mx-7 sm:mb-7">
+            <div class="flex items-start gap-3">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-[#a16a00]"
+                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  stroke-width="1.8"
+                  d="M12 9v3m0 4h.01M10.3 3.8L2.8 17a2 2 0 001.7 3h15a2 2 0 001.7-3L13.7 3.8a2 2 0 00-3.4 0z"/>
+              </svg>
+
+              <div>
+                <p class="text-sm font-extrabold">Please review your order</p>
+                <p class="mt-1 text-xs leading-5 text-gray-500">
+                  Confirm your items, quantities and total before requesting
+                  your token.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- Back to Cart -->
+        <a href="cart.html"
+          class="mt-5 flex items-center justify-center gap-2 rounded-2xl border border-black/10 bg-white px-5 py-4 text-sm font-bold transition hover:border-[#f0a400] hover:bg-[#fffaf0]">
+          <svg class="h-4 w-4" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" d="M19 12H5m7 7-7-7 7-7"/>
+          </svg>
+          Edit Cart
+        </a>
+
+      </aside>
+
+    </div>
+  </main>
+
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="mt-8 bg-[#0a0907] text-white">
+
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
+
+      <!-- Brand -->
+      <div>
+        <a href="index.html" class="inline-flex items-center gap-3">
+          <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#f0a400] text-xl font-black text-black">
+            H
+          </div>
+          <span class="text-xl font-black">HERO FOOD</span>
+        </a>
+
+        <p class="mt-5 max-w-xs text-sm leading-7 text-white/50">
+          Serving happiness, one delicious bite at a time.
+          Fresh food, bold flavors and unforgettable moments.
+        </p>
+
+        <div class="mt-5 flex items-center gap-2 text-xs font-semibold text-white/60">
+          <span class="h-2 w-2 rounded-full bg-green-500"></span>
+          Freshly prepared, always.
+        </div>
+      </div>
+
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="mb-5 font-extrabold">Quick Links</h4>
+        <ul class="space-y-3 text-sm text-white/55">
+          <li><a href="index.html" class="transition hover:text-[#f0a400]">Home</a></li>
+          <li><a href="menu.html" class="transition hover:text-[#f0a400]">Our Menu</a></li>
+          <li><a href="about.html" class="transition hover:text-[#f0a400]">About Us</a></li>
+          <li><a href="contact.html" class="transition hover:text-[#f0a400]">Contact</a></li>
+        </ul>
+      </div>
+
+
+      <!-- Customer Care -->
+      <div>
+        <h4 class="mb-5 font-extrabold">Customer Care</h4>
+        <ul class="space-y-3 text-sm text-white/55">
+          <li><a href="cart.html" class="transition hover:text-[#f0a400]">My Cart</a></li>
+          <li><a href="token.html" class="transition hover:text-[#f0a400]">Request Token</a></li>
+          <li><a href="contact.html" class="transition hover:text-[#f0a400]">Help & Support</a></li>
+        </ul>
+      </div>
+
+
+      <!-- Contact -->
+      <div>
+        <h4 class="mb-5 font-extrabold">Need Help?</h4>
+        <p class="text-sm leading-7 text-white/50">
+          Have a question about your order or reservation?
+          Our team is here to help.
+        </p>
+
+        <a href="contact.html"
+          class="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#f0a400] px-5 py-3 text-sm font-black text-[#0a0907] transition hover:bg-[#ffbd29]">
+          Contact Us
+          <span>→</span>
+        </a>
+      </div>
+
+    </div>
+
+
+    <!-- Copyright -->
+    <div class="border-t border-white/10">
+      <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-6 text-xs text-white/40 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+        <p>© 2026 Hero Food. All rights reserved.</p>
+
+        <div class="flex items-center gap-4">
+          <a href="privacy.html" class="transition hover:text-white">Privacy Policy</a>
+          <a href="terms.html" class="transition hover:text-white">Terms</a>
+        </div>
+
+        <p>Made with passion, served with love.</p>
+      </div>
+    </div>
+
+  </footer>
+ <script type="module" src="./src/main.ts"></script>
+</body>
+</html>
