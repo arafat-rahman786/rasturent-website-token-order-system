@@ -6,18 +6,17 @@ let tableBookFormSection = document.getElementById("tableBookFormSection")
 let parcelFormSection = document.getElementById("parcelFormSection")
 let orderTypePlaceholder = document.getElementById("orderTypePlaceholder")
 let tableBookForm = document.getElementById("tableBookForm")
-let parcelTokenForm = document.getElementById("parcelTokenForm")
 let summaryItemCount = document.getElementById("summaryItemCount")
 let summarySubtotal = document.getElementById("summarySubtotal")
 let summaryGrandTotal = document.getElementById("summaryGrandTotal")
 
-tableBookOption?.addEventListener("click",(e)=>{
+tableBookOption?.addEventListener("click",()=>{
     tableBookFormSection?.classList.remove("hidden")
     orderTypePlaceholder?.classList.add("hidden")
     parcelFormSection?.classList.add("hidden")
 })
 
-parcelOption?.addEventListener("click",(e)=>{
+parcelOption?.addEventListener("click",()=>{
     parcelFormSection?.classList.remove("hidden")
     orderTypePlaceholder?.classList.add("hidden")
 })
