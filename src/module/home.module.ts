@@ -910,7 +910,7 @@ Product_body?.addEventListener("click",async(e)=>{
   if (!(e.target instanceof Element)) return
   let find = e.target.closest('[data-remove-id]')
   let findId = find instanceof HTMLElement ? find.dataset.removeId : undefined
-  let getData = await api.delete(`/cartProducts/${findId}`)
+  await api.delete(`/cartProducts/${findId}`)
 dasboadSection()
   
 })
