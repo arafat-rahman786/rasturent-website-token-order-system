@@ -41,7 +41,7 @@ async function loadProductData() {
 loadProductData()
 
 
-productForm.addEventListener("submit", async (e) => {
+productForm?.addEventListener("submit", async (e) => {
   e.preventDefault()
 
   const params = new URLSearchParams(window.location.search)

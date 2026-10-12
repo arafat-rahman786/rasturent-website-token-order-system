@@ -273,7 +273,10 @@ viewParcelToken?.addEventListener("click", () => {
 const parcelTokenForm = document.getElementById(
   "parcelTokenForm"
 ) as HTMLFormElement | null;
-
+const useCurrentLocation = document.getElementById('useCurrentLocation') as HTMLButtonElement | null
+const parcelAddress = document.querySelector<HTMLInputElement | HTMLTextAreaElement>(
+  '#parcelTokenForm [name="address"]'
+)
 parcelTokenForm?.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -372,5 +375,34 @@ parcelTokenForm?.addEventListener("submit", async (e) => {
   }
 });
 
+useCurrentLocation?.addEventListener("click",(e)=>{
+  if(!navigator.geolocation){
+    alert("Your Browser Don't Support Location System")
+    return
+  }
+  navigator.geolocation.getCurrentPosition(
+    async(position)=>{
+      const { latitude, longitude } = position.coords
+      const response = await fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`
+        )
 
+        if (!response.ok) {
+          throw new Error("Address not found")
+        }
+
+        const data = await response.json()
+
+        if (parcelAddress) parcelAddress.value = data.display_name
+    },
+    (error)=>{
+      console.error('error')
+      if(error.code === error.PERMISSION_DENIED){
+        alert("Please allow location permission.")
+      }else{
+         alert("Unable to get your current location.")
+      }
+    }
+  )
+})
 

@@ -406,33 +406,11 @@ helpingRander()
 
 
 const cartSpen = document.getElementById('cartSpen')
-
-
-let cartTotal = document.getElementById('cartTotal')
-let cartItemCount = document.getElementById('cartItemCount')
-menu_body?.addEventListener('click', async (e) => {
-  e.preventDefault()
-
-  if (!(e.target instanceof Element)) return
-
-  const findBtn = e.target.closest<HTMLElement>('[data-add-id]')
-  if (!findBtn) return
-
-  const productId = findBtn.dataset.addId
-  if (!productId) return
-
-  await addToCart(productId)
-})
-
-
-
 let cartOpen = document.getElementById("cartOpen") as HTMLAnchorElement
 let cartOverlay = document.getElementById('cartOverlay')
 let cartPopup = document.getElementById('cartPopup')
 let closeCartBtn = document.getElementById('closeCartBtn')
 let cartItems = document.getElementById('cartItems')
-
-
 cartOpen?.addEventListener("click", (e) => {
   e.preventDefault()
   cartOverlay?.classList.remove("hidden")
@@ -446,41 +424,49 @@ closeCartBtn?.addEventListener("click", (e) => {
   cartPopup?.classList.add("translate-x-full")
 })
 
+let cartTotal = document.getElementById('cartTotal')
+let cartItemCount = document.getElementById('cartItemCount')
+menu_body?.addEventListener('click', async (e) => {
+  e.preventDefault()
+  if (!(e.target instanceof Element)) return
 
-async function addToCart(productId?: string) {
+  const findBtn = e.target.closest<HTMLElement>('[data-add-id]')
+  if (!findBtn) return
 
+  const productId = findBtn.dataset.addId
   if (!productId) return
 
-  try {
-    const findData = await api.get(`/cartProducts/${productId}`)
-    const processData: Product = findData.data
-    const localData = localStorage.getItem('cart')
-    const cart = localData ? JSON.parse(localData) : []
-
-    const existingProduct = cart.find(
-      (item: any) => String(item.id) === String(processData.id)
-    )
-
-    if (existingProduct) {
-      existingProduct.quantity += 1
-    } else {
-      cart.push({
-        ...processData,
-        quantity: 1
-      })
-    }
-    localStorage.setItem('cart', JSON.stringify(cart))
-
-
-    renderCart()
-
-  } catch (error) {
-    console.error('Add to Cart error:', error)
+ try {
+  const getData = await api.get(`/cartProducts/${productId}`)
+  const precess = getData.data
+  const localData = localStorage.getItem('cart')
+  const dataConvert = localData ? JSON.parse(localData) : []
+  const existingProduct = dataConvert.find((item: any) => {
+    return String(item.id) === String(productId)
+  })
+  if (existingProduct) {
+    existingProduct.quantity += 1
+  } else {
+    dataConvert.push({
+      ...precess,
+      quantity: 1
+    })
   }
+  localStorage.setItem('cart', JSON.stringify(dataConvert))
+
+} catch (error) {
+  console.error(error)
+  alert('there is error')
 }
+rendering()
+})
 
-
-
+function rendering(){
+  const localData = localStorage.getItem('cart')
+  const dataConvert = localData ? JSON.parse(localData) : []
+ renderCart()
+console.log('data convert:', dataConvert)
+}
 
 function renderCart() {
   try {
@@ -589,7 +575,7 @@ function renderCart() {
   }
 }
 
-
+renderCart()
 
 
 cartItems?.addEventListener("click", async (e) => {
