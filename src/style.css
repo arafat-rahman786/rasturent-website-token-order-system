@@ -1,1 +1,49 @@
+
 @import "tailwindcss";
+
+@theme {
+  --animate-clock-spin: clock-spin 2s linear infinite;
+  --animate-clock-glow: clock-glow 2s ease-in-out infinite;
+  --animate-success-enter: success-enter 0.45s cubic-bezier(.2,.8,.2,1) both;
+  --animate-success-pop: success-pop 0.5s 0.1s ease-out both;
+
+  @keyframes clock-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes clock-glow {
+    0%, 100% {
+      box-shadow: 0 0 25px rgba(255,179,26,.08);
+    }
+    50% {
+      box-shadow: 0 0 55px rgba(255,179,26,.28);
+    }
+  }
+
+  @keyframes success-enter {
+    from {
+      opacity: 0;
+      transform: translateY(25px) scale(.92);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes success-pop {
+    0% {
+      opacity: 0;
+      transform: scale(.4) rotate(-30deg);
+    }
+    70% {
+      opacity: 1;
+      transform: scale(1.15) rotate(8deg);
+    }
+    100% {
+      transform: scale(1) rotate(0);
+    }
+  }
+}

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#121214" />
+  <title>BurgerBite — Product Editor</title>
+
+  <link rel="stylesheet" href="./src/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="min-h-screen bg-[#121214] text-zinc-100 antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 border-b border-white/[0.07] bg-[#151517]/95 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+
+      <a href="#" class="flex items-center gap-3">
+        <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#ffb31a] text-xl text-[#181818] shadow-lg shadow-amber-500/10">
+          <i class="fa-solid fa-burger"></i>
+        </span>
+        <span>
+          <span class="block text-base font-extrabold tracking-tight text-white">Burger<span class="text-[#ffb31a]">Bite</span></span>
+          <span class="mt-0.5 block text-[10px] font-semibold uppercase tracking-[0.2em] text-zinc-500">Admin workspace</span>
+        </span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="./index.html" id="viewWebsiteBtn"
+          class="hidden items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-xs font-semibold text-zinc-300 transition hover:border-[#ffb31a]/30 hover:text-[#ffb31a] sm:flex">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          View Website
+        </a>
+
+        <div class="flex h-10 w-10 items-center justify-center rounded-full border border-[#ffb31a]/30 bg-[#ffb31a]/10 text-sm font-extrabold text-[#ffb31a]">
+          A
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-[1600px] px-4 py-7 sm:px-6 sm:py-10 lg:px-8">
+
+    <!-- Page Heading -->
+    <section class="mb-8 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+      <div>
+        <div class="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[#ffb31a]">
+          <span class="h-1.5 w-1.5 rounded-full bg-[#ffb31a]"></span>
+          Restaurant Management
+        </div>
+
+        <h1 class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+          Product Editor
+        </h1>
+
+        <p class="mt-2 max-w-xl text-sm leading-6 text-zinc-400">
+          Manage your menu, update preparation times, and preview product changes before publishing.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3">
+        <span id="editStatus"
+          class="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/[0.08] px-3 py-2 text-xs font-semibold text-emerald-400">
+          <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+          Ready to edit
+        </span>
+
+        <button type="button" id="resetFormBtn"
+          class="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-xs font-bold text-zinc-300 transition hover:bg-white/[0.08] hover:text-white">
+          <i class="fa-solid fa-rotate-left"></i>
+          Reset
+        </button>
+      </div>
+    </section>
+
+    <!-- Main Grid -->
+    <div class="grid grid-cols-1 items-start gap-6 xl:grid-cols-12 xl:gap-8">
+
+      <!-- Editor Form -->
+      <section class="min-w-0 xl:col-span-7">
+        <form id="productForm"
+          class="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#19191c] shadow-2xl shadow-black/10">
+
+          <!-- Form Header -->
+          <div class="flex items-center gap-4 border-b border-white/[0.07] px-5 py-5 sm:px-7">
+            <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#ffb31a]/15 bg-[#ffb31a]/10 text-[#ffb31a]">
+              <i class="fa-solid fa-sliders text-lg"></i>
+            </div>
+            <div class="min-w-0 flex-1">
+              <h2 class="text-sm font-bold text-white">Product information</h2>
+              <p class="mt-1 text-xs text-zinc-500">Update the details displayed on your menu.</p>
+            </div>
+            <span class="rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-[10px] font-bold uppercase tracking-wider text-zinc-400">
+              Editor
+            </span>
+          </div>
+
+          <div class="space-y-8 p-5 sm:p-7">
+
+            <!-- Basic Information -->
+            <section class="space-y-5">
+              <div class="flex items-center gap-3">
+                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-white/[0.05] text-xs font-bold text-[#ffb31a]">01</span>
+                <div>
+                  <h3 class="text-sm font-bold text-zinc-100">Basic information</h3>
+                  <p class="mt-1 text-xs text-zinc-500">Name, category and pricing.</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="input-id" class="mb-2 block text-xs font-semibold text-zinc-400">Product ID</label>
+                  <input type="text" id="input-id" name="productId" value="BB-4087"
+                    placeholder="e.g. BB-4087"
+                    class="w-full rounded-xl border border-white/10 bg-[#111113] px-4 py-3 text-sm text-zinc-100 outline-none transition placeholder:text-zinc-600 focus:border-[#ffb31a]/60 focus:ring-2 focus:ring-[#ffb31a]/10" />
+                </div>
+
+                <div>
+                  <label for="input-name" class="mb-2 block text-xs font-semibold text-zinc-400">Product name</label>
+                  <input type="text" id="input-name" name="productName" value="Double Fire Burger"
+                    placeholder="Enter product name" required
+                    class="w-full rounded-xl border border-white/10 bg-[#111113] px-4 py-3 text-sm text-zinc-100 outline-none transition placeholder:text-zinc-600 focus:border-[#ffb31a]/60 focus:ring-2 focus:ring-[#ffb31a]/10" />
+                </div>
+
+                <div>
+                  <label for="input-category" class="mb-2 block text-xs font-semibold text-zinc-400">Category</label>
+                  <select id="input-category" name="category" required
+                    class="w-full rounded-xl border border-white/10 bg-[#111113] px-4 py-3 text-sm text-zinc-100 outline-none transition focus:border-[#ffb31a]/60">
+                    <option value="Burgers">Burgers</option>
+                    <option value="Chicken">Chicken</option>
+                    <option value="Pizzas">Pizzas</option>
+                    <option value="Pasta">Pasta</option>
+                    <option value="Beverages">Beverages</option>
+                    <option value="Sides">Sides</option>
+                    <option value="Desserts">Desserts</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="input-price" class="mb-2 block text-xs font-semibold text-zinc-400">Price (BDT)</label>
+                  <div class="flex overflow-hidden rounded-xl border border-white/10 bg-[#111113] transition focus-within:border-[#ffb31a]/60">
+                    <span class="flex items-center border-r border-white/[0.07] px-3 text-sm font-bold text-[#ffb31a]">৳</span>
+                    <input type="number" id="input-price" name="priceValue" value="399" min="0" step="1" required
+                      class="w-full min-w-0 bg-transparent px-4 py-3 text-sm text-zinc-100 outline-none" />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label for="input-desc" class="mb-2 block text-xs font-semibold text-zinc-400">Product description</label>
+                <textarea id="input-desc" name="description" rows="3" required
+                  placeholder="Describe ingredients, taste and portion..."
+                  class="w-full resize-y rounded-xl border border-white/10 bg-[#111113] px-4 py-3 text-sm leading-6 text-zinc-100 outline-none transition placeholder:text-zinc-600 focus:border-[#ffb31a]/60 focus:ring-2 focus:ring-[#ffb31a]/10">Double beef patties, melted cheese, special spicy sauce, fresh lettuce.</textarea>
+              </div>
+            </section>
+
+            <div class="h-px bg-white/[0.07]"></div>
+
+            <!-- Preparation Time -->
+            <section class="space-y-5">
+              <div class="flex items-center gap-3">
+                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-white/[0.05] text-xs font-bold text-[#ffb31a]">02</span>
+                <div>
+                  <h3 class="text-sm font-bold text-zinc-100">Preparation time</h3>
+                  <p class="mt-1 text-xs text-zinc-500">Used to calculate your live token queue.</p>
+                </div>
+              </div>
+
+              <div class="rounded-2xl border border-[#ffb31a]/15 bg-[#ffb31a]/[0.035] p-4 sm:p-5">
+                <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:items-end">
+                  <div>
+                    <label for="input-time" class="mb-2 block text-xs font-semibold text-zinc-400">Preparation time (minutes)</label>
+                    <div class="flex overflow-hidden rounded-xl border border-white/10 bg-[#111113] focus-within:border-[#ffb31a]/60">
+                      <input type="number" id="input-time" name="preparationTime" value="3" min="1" step="1" required
+                        class="w-full min-w-0 bg-transparent px-4 py-3 text-sm text-zinc-100 outline-none" />
+                      <span class="flex items-center px-4 text-xs font-semibold text-zinc-500">MIN</span>
+                    </div>
+                  </div>
+
+                  <div class="rounded-xl border border-white/[0.06] bg-[#171719] p-4">
+                    <div class="flex items-center gap-2 text-xs font-semibold text-zinc-400">
+                      <i class="fa-solid fa-stopwatch text-[#ffb31a]"></i>
+                      Queue estimate
+                    </div>
+                    <p class="mt-2 text-lg font-extrabold text-white">
+                      <span id="hint-time">3</span>
+                      <span class="text-sm font-medium text-zinc-500">minutes / item</span>
+                    </p>
+                    <p class="mt-1 text-[11px] leading-5 text-zinc-500">The queue duration can increase with order quantity and earlier tokens.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div class="h-px bg-white/[0.07]"></div>
+
+            <!-- Product Image -->
+            <section class="space-y-5">
+              <div class="flex items-center gap-3">
+                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-white/[0.05] text-xs font-bold text-[#ffb31a]">03</span>
+                <div>
+                  <h3 class="text-sm font-bold text-zinc-100">Product imagery</h3>
+                  <p class="mt-1 text-xs text-zinc-500">Add a clear image and accessible alt text.</p>
+                </div>
+              </div>
+
+              <div>
+                <label for="input-image" class="mb-2 block text-xs font-semibold text-zinc-400">Image URL</label>
+                <div class="flex items-center gap-3 rounded-xl border border-white/10 bg-[#111113] px-4 transition focus-within:border-[#ffb31a]/60">
+                  <i class="fa-regular fa-image text-zinc-500"></i>
+                  <input type="url" id="input-image" name="imageSelect"
+                    value="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85"
+                    placeholder="https://example.com/product.jpg"
+                    class="w-full min-w-0 bg-transparent py-3 text-sm text-zinc-100 outline-none placeholder:text-zinc-600" />
+                </div>
+              </div>
+
+              <div>
+                <label for="input-alt" class="mb-2 block text-xs font-semibold text-zinc-400">Image alt text</label>
+                <input type="text" id="input-alt" name="imageAlt" value="Double Fire Burger with melted cheese"
+                  placeholder="Describe the product image"
+                  class="w-full rounded-xl border border-white/10 bg-[#111113] px-4 py-3 text-sm text-zinc-100 outline-none transition placeholder:text-zinc-600 focus:border-[#ffb31a]/60" />
+              </div>
+            </section>
+
+            <div class="h-px bg-white/[0.07]"></div>
+
+            <!-- Appearance -->
+            <section class="space-y-5">
+              <div class="flex items-center gap-3">
+                <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-white/[0.05] text-xs font-bold text-[#ffb31a]">04</span>
+                <div>
+                  <h3 class="text-sm font-bold text-zinc-100">Product appearance</h3>
+                  <p class="mt-1 text-xs text-zinc-500">Badge and customer-facing rating.</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="input-badge" class="mb-2 block text-xs font-semibold text-zinc-400">Badge text</label>
+                  <input type="text" id="input-badge" name="badgeText" value="SPECIAL"
+                    placeholder="e.g. BESTSELLER"
+                    class="w-full rounded-xl border border-white/10 bg-[#111113] px-4 py-3 text-sm text-zinc-100 outline-none transition placeholder:text-zinc-600 focus:border-[#ffb31a]/60" />
+                </div>
+
+                <div>
+                  <label for="input-badge-style" class="mb-2 block text-xs font-semibold text-zinc-400">Badge color</label>
+                  <select id="input-badge-style" name="badgeStyle"
+                    class="w-full rounded-xl border border-white/10 bg-[#111113] px-4 py-3 text-sm text-zinc-100 outline-none focus:border-[#ffb31a]/60">
+                    <option value="bg-red-500">Red / Danger</option>
+                    <option value="bg-orange-500">Orange</option>
+                    <option value="bg-amber-500" selected>Amber Gold</option>
+                    <option value="bg-emerald-500">Emerald</option>
+                    <option value="bg-black">Black</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="input-rating" class="mb-2 block text-xs font-semibold text-zinc-400">Rating</label>
+                  <input type="number" id="input-rating" name="ratingValue" value="5.0" min="0" max="5" step="0.1"
+                    class="w-full rounded-xl border border-white/10 bg-[#111113] px-4 py-3 text-sm text-zinc-100 outline-none transition focus:border-[#ffb31a]/60" />
+                </div>
+
+                <div>
+                  <label for="input-mini-category" class="mb-2 block text-xs font-semibold text-zinc-400">Product label</label>
+                  <select id="input-mini-category" name="miniCategory"
+                    class="w-full rounded-xl border border-white/10 bg-[#111113] px-4 py-3 text-sm text-zinc-100 outline-none focus:border-[#ffb31a]/60">
+                    <option value="Featured">Featured</option>
+                    <option value="Bestseller">Bestseller</option>
+                    <option value="New Arrival">New Arrival</option>
+                    <option value="Popular">Popular</option>
+                  </select>
+                </div>
+              </div>
+            </section>
+
+            <div class="h-px bg-white/[0.07]"></div>
+
+          </div>
+
+          <!-- Form Actions -->
+          <div class="flex flex-col-reverse gap-3 border-t border-white/[0.07] bg-[#151517] px-5 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-7">
+            <button type="button" id="cancelEditBtn"
+              class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 px-5 py-3 text-xs font-bold text-zinc-400 transition hover:bg-white/[0.04] hover:text-white">
+              Cancel
+            </button>
+
+            <button type="submit" id="saveProductBtn"
+              class="inline-flex items-center justify-center gap-2 rounded-xl bg-[#ffb31a] px-6 py-3 text-xs font-extrabold text-[#181818] shadow-lg shadow-amber-500/10 transition hover:bg-[#ffc044] active:scale-[0.98]">
+              <i class="fa-solid fa-check"></i>
+              Save Product
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Live Preview -->
+      <aside class="min-w-0 xl:col-span-5">
+        <div class="xl:sticky xl:top-24">
+
+          <section class="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#19191c] shadow-2xl shadow-black/10">
+
+            <div class="flex items-center justify-between border-b border-white/[0.07] px-5 py-5 sm:px-6">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#ffb31a]/10 text-[#ffb31a]">
+                    <i class="fa-regular fa-eye text-sm"></i>
+                  </span>
+                  <h2 class="text-sm font-bold text-white">Live preview</h2>
+                </div>
+                <p class="mt-2 text-xs text-zinc-500">Customer-facing product card</p>
+              </div>
+
+              <span class="inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/[0.06] px-3 py-1.5 text-[10px] font-bold text-emerald-400">
+                <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400"></span>
+                LIVE
+              </span>
+            </div>
+
+            <div class="p-5 sm:p-6">
+              <article id="previewCard"
+                class="mx-auto max-w-md overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111113] shadow-xl">
+
+                <!-- Preview Image -->
+                <div class="group relative h-56 overflow-hidden bg-zinc-800 sm:h-64">
+                  <img id="prev-img"
+                    src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85"
+                    alt="Double Fire Burger"
+                    class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/20"></div>
+
+                  <div id="prev-badge-wrapper"
+                    class="absolute left-4 top-4 rounded-lg bg-amber-500 px-3 py-1.5 text-[10px] font-extrabold uppercase tracking-wider text-[#181818] shadow-lg">
+                    <span id="prev-badge">SPECIAL</span>
+                  </div>
+
+                  <div class="absolute right-4 top-4 flex items-center gap-1.5 rounded-lg border border-white/10 bg-black/50 px-3 py-2 text-xs font-bold text-white backdrop-blur-md">
+                    <i class="fa-solid fa-star text-[#ffb31a]"></i>
+                    <span id="prev-rating">5.0</span>
+                  </div>
+
+                  <div class="absolute bottom-4 left-4 right-4">
+                    <p id="prev-category" class="mb-2 text-[10px] font-extrabold uppercase tracking-[0.2em] text-[#ffcf66]">Burgers</p>
+                    <h3 id="prev-name" class="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">Double Fire Burger</h3>
+                  </div>
+                </div>
+
+                <!-- Preview Content -->
+                <div class="space-y-5 p-5 sm:p-6">
+
+                  <p id="prev-desc" class="text-xs leading-6 text-zinc-400 sm:text-sm">
+                    Double beef patties, melted cheese, special spicy sauce, fresh lettuce.
+                  </p>
+
+                  <div class="flex items-center justify-between gap-3 rounded-xl border border-white/[0.06] bg-white/[0.025] px-4 py-3">
+                    <div class="flex items-center gap-3">
+                      <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-[#ffb31a]/10 text-[#ffb31a]">
+                        <i class="fa-solid fa-clock"></i>
+                      </span>
+                      <div>
+                        <p class="text-[10px] font-semibold uppercase tracking-wider text-zinc-500">Preparation</p>
+                        <p class="mt-1 text-xs font-bold text-zinc-200">Ready in <span id="prev-time">3 min</span></p>
+                      </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs text-zinc-600"></i>
+                  </div>
+
+                  <div class="flex items-end justify-between gap-3 border-t border-white/[0.07] pt-5">
+                    <div>
+                      <p class="text-[10px] font-semibold uppercase tracking-widest text-zinc-500">Price</p>
+                      <p class="mt-1 text-2xl font-extrabold tracking-tight text-white">
+                        ৳<span id="prev-price">399</span>
+                      </p>
+                    </div>
+
+                    <button type="button" id="previewAddToCartBtn"
+                      class="inline-flex items-center gap-2 rounded-xl bg-[#ffb31a] px-5 py-3 text-xs font-extrabold text-[#181818] transition hover:bg-[#ffc044]">
+                      <i class="fa-solid fa-plus"></i>
+                      Add to Cart
+                    </button>
+                  </div>
+
+                </div>
+              </article>
+
+              <!-- Preview Notes -->
+              <div class="mt-5 rounded-xl border border-[#ffb31a]/10 bg-[#ffb31a]/[0.035] p-4">
+                <div class="flex items-start gap-3">
+                  <span class="mt-0.5 text-[#ffb31a]">
+                    <i class="fa-solid fa-lightbulb"></i>
+                  </span>
+                  <div>
+                    <h3 class="text-xs font-bold text-zinc-200">Live token integration</h3>
+                    <p class="mt-1.5 text-[11px] leading-5 text-zinc-500">
+                      Preparation time will help calculate estimated queue duration for customer tokens.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- Helper Stats -->
+          <div class="mt-4 grid grid-cols-2 gap-4">
+            <div class="rounded-xl border border-white/[0.07] bg-[#19191c] p-4">
+              <div class="flex items-center gap-2 text-zinc-500">
+                <i class="fa-solid fa-coins text-xs text-[#ffb31a]"></i>
+                <span class="text-[10px] font-bold uppercase tracking-wider">Listed price</span>
+              </div>
+              <p class="mt-2 text-lg font-extrabold text-white">৳<span id="summary-price">399</span></p>
+            </div>
+
+            <div class="rounded-xl border border-white/[0.07] bg-[#19191c] p-4">
+              <div class="flex items-center gap-2 text-zinc-500">
+                <i class="fa-solid fa-stopwatch text-xs text-[#ffb31a]"></i>
+                <span class="text-[10px] font-bold uppercase tracking-wider">Prep time</span>
+              </div>
+              <p class="mt-2 text-lg font-extrabold text-white"><span id="summary-time">3</span> min</p>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-8 border-t border-white/[0.07]">
+    <div class="mx-auto flex max-w-[1600px] flex-col gap-2 px-4 py-6 text-center sm:flex-row sm:items-center sm:justify-between sm:px-6 sm:text-left lg:px-8">
+      <p class="text-xs font-semibold text-zinc-500">
+        <span class="text-[#ffb31a]">BurgerBite</span> Admin Workspace
+      </p>
+      <p class="text-[11px] text-zinc-600">Product management · Live token system</p>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" role="status" aria-live="polite"
+    class="pointer-events-none fixed bottom-5 right-5 z-50 flex max-w-[calc(100%-2.5rem)] translate-y-5 items-center gap-3 rounded-2xl border border-white/10 bg-[#202023] p-4 opacity-0 shadow-2xl transition-all duration-300">
+    <span id="toast-icon" class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
+      <i class="fa-solid fa-check"></i>
+    </span>
+    <div>
+      <p id="toast-title" class="text-xs font-bold text-white">Success</p>
+      <p id="toast-desc" class="mt-1 text-[11px] text-zinc-400">Product updated successfully.</p>
+    </div>
+  </div>
+
+
+ <script type="module" src="./src/main.ts"></script>
+</body>
+</html>

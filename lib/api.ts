@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: " https://rasturent-website-token-order-system.onrender.com",
+  baseURL: "https://rasturent-website-token-order-system.onrender.com",
   timeout: 5000,
   headers: { "content-type": "application/json" },
 });

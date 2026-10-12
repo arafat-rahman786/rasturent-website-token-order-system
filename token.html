@@ -1020,6 +1020,156 @@
     </div>
 
   </footer>
+
+
+
+
+
+  
+
+<!-- FULL SCREEN LOADER -->
+<div id="parcelLoader"
+  class="fixed inset-0 z-[9999] hidden items-center justify-center bg-[#090b0c]/95 px-5 backdrop-blur-md">
+
+  <div class="flex flex-col items-center text-center">
+
+    <div class="relative mb-8 flex h-28 w-28 items-center justify-center rounded-full border border-amber-400/30 bg-amber-400/5 shadow-[0_0_40px_rgba(255,179,26,0.12)] animate-clock-glow">
+
+      <div class="absolute inset-2 rounded-full border border-amber-400/20"></div>
+
+      <div class="absolute h-20 w-20 rounded-full border-2 border-transparent border-t-amber-400 border-r-amber-300 animate-clock-spin"></div>
+
+      <div class="h-12 w-12 rounded-full border border-amber-400/40"></div>
+
+    </div>
+
+    <p class="text-xs font-bold uppercase tracking-[0.35em] text-amber-400">
+      HERO FOOD
+    </p>
+
+    <h2 class="mt-3 text-2xl font-black text-white sm:text-3xl">
+      Preparing Your Token
+    </h2>
+
+    <p class="mt-3 max-w-sm text-sm leading-6 text-white/55">
+      আপনার অর্ডারের তথ্য প্রস্তুত হচ্ছে। একটু অপেক্ষা করুন!
+    </p>
+
+    <div class="mt-7 h-1.5 w-64 max-w-full overflow-hidden rounded-full bg-white/10">
+      <div id="loaderProgress"
+        class="h-full w-0 rounded-full bg-amber-400 transition-[width] duration-100">
+      </div>
+    </div>
+
+    <p class="mt-3 text-sm font-semibold text-amber-400">
+      <span id="loaderCountdown">5</span> seconds remaining
+    </p>
+
+  </div>
+</div>
+
+
+<!-- SUCCESS POPUP -->
+<div id="parcelSuccess"
+  class="fixed inset-0 z-[10000] hidden items-center justify-center overflow-y-auto bg-black/75 px-4 py-8 backdrop-blur-md">
+
+  <div class="my-auto w-full max-w-lg rounded-3xl border border-amber-400/20 bg-[#111416] p-6 text-left shadow-2xl sm:p-8 animate-success-enter">
+
+    <!-- Success Heading -->
+    <div class="text-center">
+
+      <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-amber-400/30 bg-amber-400/10 text-3xl text-amber-400 animate-success-pop">
+        ✓
+      </div>
+
+      <p class="mt-5 text-xs font-bold uppercase tracking-[0.3em] text-amber-400">
+        Order Confirmed
+      </p>
+
+      <h2 class="mt-3 text-3xl font-black text-white">
+        Token Created!
+      </h2>
+
+      <p class="mt-2 text-sm leading-6 text-white/55">
+        আপনার Parcel Token সফলভাবে তৈরি হয়েছে।
+      </p>
+
+      <div class="mt-5 rounded-2xl border border-amber-400/20 bg-amber-400/5 p-4">
+        <p class="text-xs font-semibold uppercase tracking-widest text-white/50">
+          Your Token ID
+        </p>
+        <p id="popupTokenId" class="mt-1 text-3xl font-black text-amber-400">
+          #---
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Customer Information -->
+    <div class="mt-6">
+
+      <h3 class="mb-3 text-sm font-bold text-white">
+        Customer Information
+      </h3>
+
+      <div class="space-y-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+
+        <div class="flex items-start justify-between gap-4">
+          <span class="text-sm text-white/50">Full Name</span>
+          <span id="popupName" class="max-w-[65%] break-words text-right text-sm font-semibold text-white">—</span>
+        </div>
+
+        <div class="flex items-start justify-between gap-4">
+          <span class="text-sm text-white/50">Email</span>
+          <span id="popupEmail" class="max-w-[65%] break-all text-right text-sm font-semibold text-white">—</span>
+        </div>
+
+        <div class="flex items-start justify-between gap-4">
+          <span class="text-sm text-white/50">Phone</span>
+          <span id="popupPhone" class="max-w-[65%] break-words text-right text-sm font-semibold text-white">—</span>
+        </div>
+
+        <div class="flex items-start justify-between gap-4">
+          <span class="text-sm text-white/50">District</span>
+          <span id="popupDistrict" class="max-w-[65%] break-words text-right text-sm font-semibold text-white">—</span>
+        </div>
+
+        <div class="flex items-start justify-between gap-4">
+          <span class="text-sm text-white/50">Address</span>
+          <span id="popupAddress" class="max-w-[65%] break-words text-right text-sm font-semibold text-white">—</span>
+        </div>
+
+        <div class="flex items-start justify-between gap-4">
+          <span class="text-sm text-white/50">Payment</span>
+          <span id="popupPayment" class="max-w-[65%] break-words text-right text-sm font-semibold text-white">—</span>
+        </div>
+
+        <div class="border-t border-white/10 pt-4">
+          <div class="flex items-center justify-between gap-4">
+            <span class="text-sm text-white/50">Total Amount</span>
+            <span id="popupTotal" class="text-xl font-black text-amber-400">৳0</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <button id="viewParcelToken" type="button"
+      class="mt-6 w-full rounded-xl bg-amber-400 px-5 py-4 font-extrabold text-black transition hover:bg-amber-300 active:scale-[0.98]">
+      View Live Token →
+    </button>
+
+    <button id="closeParcelSuccess" type="button"
+      class="mt-3 w-full rounded-xl border border-white/10 px-5 py-3 font-semibold text-white/70 transition hover:bg-white/5">
+      Close
+    </button>
+
+  </div>
+</div>
+
+
+
  <script type="module" src="./src/main.ts"></script>
 </body>
 </html>

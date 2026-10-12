@@ -66,11 +66,11 @@
       <div class="flex shrink-0 items-center gap-2 sm:gap-3">
 
         <!-- Wishlist -->
-        <a href="wishlist.html"
+        <a href="wishlist.html"id="wishlistOpen"
           aria-label="Wishlist"
           class="group relative flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-lg text-white/80 transition hover:border-[#ffb31a]/50 hover:bg-[#ffb31a]/10 hover:text-[#ffb31a]">
           <i class="fa-regular fa-heart transition group-hover:scale-110"></i>
-          <span class="absolute -right-1 -top-1 flex h-[17px] min-w-[17px] items-center justify-center rounded-full bg-[#ffb31a] px-1 text-[10px] font-extrabold text-black">0</span>
+          <span id="wishSpen" class="absolute -right-1 -top-1 flex h-[17px] min-w-[17px] items-center justify-center rounded-full bg-[#ffb31a] px-1 text-[10px] font-extrabold text-black">0</span>
         </a>
 
         <!-- Cart -->
@@ -891,6 +891,155 @@
     </p>
   </div>
 </aside>
+
+
+<!-- Wishlist Overlay -->
+<div
+  id="wishlistOverlay"
+  class="fixed inset-0 z-[90] hidden bg-black/50 backdrop-blur-sm transition-opacity"
+></div>
+
+<!-- Wishlist Drawer -->
+<aside
+  id="wishlistPopup"
+  class="fixed right-0 top-0 z-[100] flex h-dvh w-full max-w-md translate-x-full flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out"
+  aria-labelledby="wishlistTitle"
+  aria-modal="true"
+  role="dialog"
+>
+  <!-- Header -->
+  <div
+    class="flex items-center justify-between border-b border-gray-100 px-5 py-5 sm:px-6"
+  >
+    <div class="flex items-center gap-3">
+      <div
+        class="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-100 text-amber-600"
+      >
+        <i class="fa-solid fa-heart text-xl"></i>
+      </div>
+
+      <div>
+        <h2
+          id="wishlistTitle"
+          class="text-xl font-extrabold tracking-tight text-gray-900"
+        >
+          My Wishlist
+        </h2>
+
+        <p class="mt-0.5 text-xs text-gray-500">
+          Your favorite bites, saved for later!
+        </p>
+      </div>
+    </div>
+
+    <!-- Close Button -->
+    <button
+      id="closeWishlistBtn"
+      type="button"
+      aria-label="Close wishlist"
+      class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200 hover:text-gray-900"
+    >
+      <i class="fa-solid fa-xmark text-lg"></i>
+    </button>
+  </div>
+
+  <!-- Wishlist Items Header -->
+  <div class="flex items-center justify-between px-5 pb-3 pt-5 sm:px-6">
+    <p class="text-sm font-bold text-gray-800">
+      Saved Items
+
+      <span
+        id="wishlistItemCount"
+        class="ml-1 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-amber-100 px-2 text-xs font-extrabold text-amber-700"
+      >
+        3
+      </span>
+    </p>
+
+    <button
+      id="clearWishlistBtn"
+      type="button"
+      class="text-xs font-semibold text-red-500 transition hover:text-red-700"
+    >
+      Clear wishlist
+    </button>
+  </div>
+
+  <!-- Wishlist Items Container -->
+  <div
+    id="wishlistItems"
+    class="flex-1 space-y-4 overflow-y-auto px-5 pb-5 sm:px-6"
+  >
+    <!-- Empty Wishlist State -->
+    <div
+      id="emptyWishlist"
+      class="hidden min-h-[300px] flex-col items-center justify-center text-center"
+    >
+      <div
+        class="flex h-24 w-24 items-center justify-center rounded-full bg-amber-50"
+      >
+        <i class="fa-regular fa-heart text-4xl text-amber-500"></i>
+      </div>
+
+      <h3 class="mt-6 text-lg font-extrabold text-gray-900">
+        Your wishlist is empty!
+      </h3>
+
+      <p class="mt-2 max-w-[240px] text-sm leading-6 text-gray-500">
+        Save your favorite food here and order it whenever you want.
+      </p>
+
+      <button
+        id="continueWishlistShoppingBtn"
+        type="button"
+        class="mt-6 rounded-xl bg-amber-500 px-6 py-3 text-sm font-bold text-gray-950 shadow-lg shadow-amber-500/20 transition hover:bg-amber-400"
+      >
+        Explore Menu
+      </button>
+    </div>
+  </div>
+
+  <!-- Bottom Summary -->
+  <div class="border-t border-gray-100 bg-white px-5 pb-5 pt-5 sm:px-6">
+    <div class="rounded-2xl bg-amber-50 p-4">
+      <div class="flex items-center gap-3">
+        <div
+          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-amber-600 shadow-sm"
+        >
+          <i class="fa-solid fa-gift text-lg"></i>
+        </div>
+
+        <div>
+          <p class="text-sm font-extrabold text-gray-900">
+            Something delicious awaits!
+          </p>
+
+          <p class="mt-1 text-xs leading-5 text-gray-500">
+            Your saved favorites are just one click away.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Explore Menu Button -->
+    <a
+      id="wishlistExploreBtn"
+      href="./menu.html"
+      class="mt-4 flex w-full items-center justify-center gap-3 rounded-2xl bg-amber-500 px-5 py-4 text-sm font-extrabold text-gray-950 shadow-lg shadow-amber-500/20 transition hover:-translate-y-0.5 hover:bg-amber-400 hover:shadow-xl"
+    >
+      <i class="fa-solid fa-utensils"></i>
+      <span>Explore Menu</span>
+
+      <i class="fa-solid fa-arrow-right ml-auto"></i>
+    </a>
+
+    <p class="mt-3 text-center text-[11px] text-gray-400">
+      Made with love · Fresh food · Great taste
+    </p>
+  </div>
+</aside>
+
+
 <script type="module" src="./src/main.ts"></script>
 </body>
 </html>
