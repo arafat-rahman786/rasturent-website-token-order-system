@@ -900,3 +900,86 @@ Product_body?.addEventListener("click",async(e)=>{
 dasboadSection()
   
 })
+
+
+
+const projectPopup = document.getElementById("projectPopup");
+const popupBox = document.getElementById("popupBox");
+const popupLoader = document.getElementById("popupLoader");
+const closePopup = document.getElementById("closePopup");
+
+let popupTimer: ReturnType<typeof setTimeout> | undefined;
+let closeTimer: ReturnType<typeof setTimeout> | undefined;
+
+function openProjectPopup(): void {
+  if (!projectPopup || !popupBox || !popupLoader) return;
+
+  if (closeTimer) clearTimeout(closeTimer);
+  if (popupTimer) clearTimeout(popupTimer);
+
+  popupLoader.classList.remove("opacity-0", "pointer-events-none");
+
+  projectPopup.classList.remove("invisible");
+  projectPopup.setAttribute("aria-hidden", "false");
+
+  document.body.classList.add("overflow-hidden");
+
+  requestAnimationFrame(() => {
+    projectPopup.classList.remove("opacity-0");
+    projectPopup.classList.add("opacity-100");
+
+    popupBox.classList.remove("scale-95");
+    popupBox.classList.add("scale-100");
+  });
+
+  popupTimer = setTimeout(() => {
+    popupLoader.classList.add("opacity-0", "pointer-events-none");
+  }, 1600);
+}
+
+function closeProjectPopup(): void {
+  if (!projectPopup || !popupBox || !popupLoader) return;
+
+  if (popupTimer) clearTimeout(popupTimer);
+
+  projectPopup.classList.remove("opacity-100");
+  projectPopup.classList.add("opacity-0");
+
+  popupBox.classList.remove("scale-100");
+  popupBox.classList.add("scale-95");
+
+  projectPopup.setAttribute("aria-hidden", "true");
+
+  closeTimer = setTimeout(() => {
+    projectPopup.classList.add("invisible");
+    document.body.classList.remove("overflow-hidden");
+
+
+    popupLoader.classList.remove(
+      "opacity-0",
+      "pointer-events-none"
+    );
+  }, 300);
+}
+
+
+window.addEventListener("load", () => {
+  setTimeout(openProjectPopup, 250);
+});
+
+
+closePopup?.addEventListener("click", closeProjectPopup);
+
+
+projectPopup?.addEventListener("click", (event: MouseEvent) => {
+  if (event.target === projectPopup) {
+    closeProjectPopup();
+  }
+});
+
+
+document.addEventListener("keydown", (event: KeyboardEvent) => {
+  if (event.key === "Escape") {
+    closeProjectPopup();
+  }
+});

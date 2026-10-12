@@ -1040,6 +1040,179 @@
 </aside>
 
 
+
+<!-- BurgerBite Project Journey Popup -->
+<div
+  id="projectPopup"
+  class="fixed inset-0 z-[9999] invisible flex items-center justify-center bg-black/80 p-4 opacity-0 backdrop-blur-sm transition-all duration-300"
+  aria-hidden="true"
+>
+  <div
+    id="popupBox"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="popupTitle"
+    class="relative flex max-h-[88vh] w-full max-w-2xl scale-95 flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#101213] shadow-2xl shadow-black/50 transition-transform duration-300"
+  >
+    <!-- Loading Animation -->
+    <div
+      id="popupLoader"
+      class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#101213] transition-opacity duration-500"
+    >
+      <div class="relative flex h-16 w-16 items-center justify-center">
+        <div
+          class="absolute inset-0 rounded-full border-2 border-white/10"
+        ></div>
+
+        <div
+          class="absolute inset-0 animate-popup-spin rounded-full border-2 border-transparent border-t-[#ffb31a] border-r-[#ffb31a]"
+        ></div>
+
+        <span class="text-2xl">🍔</span>
+      </div>
+
+      <h2 class="mt-5 text-lg font-bold tracking-wide text-white">
+        Burger<span class="text-[#ffb31a]">Bite</span>
+      </h2>
+
+      <p class="mt-2 animate-pulse text-center text-sm text-gray-400">
+        আমাদের Development Journey লোড হচ্ছে...
+      </p>
+
+      <div class="mt-5 h-1 w-40 overflow-hidden rounded-full bg-white/10">
+        <div
+          class="h-full w-full origin-left animate-popup-loader rounded-full bg-[#ffb31a]"
+        ></div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <div
+      class="flex shrink-0 items-start justify-between border-b border-white/10 px-5 py-4 sm:px-7"
+    >
+      <div>
+        <span
+          class="text-xs font-semibold uppercase tracking-[0.2em] text-[#ffb31a]"
+        >
+          Project Overview
+        </span>
+
+        <h2
+          id="popupTitle"
+          class="mt-1 text-xl font-bold text-white sm:text-2xl"
+        >
+          BurgerBite
+        </h2>
+
+        <p class="mt-1 text-sm text-gray-400">
+          ফিচার ও ডেভেলপমেন্ট জার্নি
+        </p>
+      </div>
+
+      <button
+        id="closePopup"
+        type="button"
+        aria-label="Popup বন্ধ করুন"
+        class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/10 text-2xl text-gray-400 transition hover:border-[#ffb31a] hover:bg-[#ffb31a] hover:text-black focus-visible:outline-2 focus-visible:outline-[#ffb31a]"
+      >
+        &times;
+      </button>
+    </div>
+
+    <!-- Scrollable Content -->
+    <div class="min-h-0 flex-1 overflow-y-auto px-5 py-5 sm:px-7">
+
+      <p class="mb-5 text-sm leading-7 text-gray-300">
+        BurgerBite একটি Restaurant Ordering ও Token Management System।
+        এই প্রজেক্টে Food Ordering, Cart Management, Menu Management
+        এবং Order Tracking-এর মতো বাস্তব সমস্যার সমাধান করার চেষ্টা করা হয়েছে।
+      </p>
+
+      <!-- Features -->
+      <section>
+        <h3 class="mb-4 flex items-center gap-2 text-base font-bold text-white">
+          <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#ffb31a]/10 text-[#ffb31a]">
+            01
+          </span>
+          প্রজেক্টের ফিচারসমূহ
+        </h3>
+
+        <ol class="space-y-3">
+          <li class="feature-item"><span>১.</span><p>আধুনিক ও Responsive Restaurant Website ডিজাইন।</p></li>
+          <li class="feature-item"><span>২.</span><p>খাবারের Menu, Category, Image, Rating ও Price প্রদর্শন।</p></li>
+          <li class="feature-item"><span>৩.</span><p>Shopping Cart — Quantity পরিবর্তন, Item Remove ও Total Price হিসাব।</p></li>
+          <li class="feature-item"><span>৪.</span><p>Wishlist — পছন্দের খাবার সংরক্ষণ ও পরিচালনা।</p></li>
+          <li class="feature-item"><span>৫.</span><p>Admin Dashboard — Product Add, Edit, Update ও Manage।</p></li>
+          <li class="feature-item"><span>৬.</span><p>Live Preview — Product-এর ডিজাইন পরিবর্তনের Preview।</p></li>
+          <li class="feature-item"><span>৭.</span><p>Parcel Order ও Table Booking-এর আলাদা ব্যবস্থা।</p></li>
+          <li class="feature-item"><span>৮.</span><p>Order Token তৈরি ও Order Data পরিচালনা।</p></li>
+          <li class="feature-item"><span>৯.</span><p>Live Token Countdown ও Preparation Time অনুযায়ী অপেক্ষার সময় গণনা।</p></li>
+          <li class="feature-item"><span>১০.</span><p>API Integration-এর মাধ্যমে Product ও Cart Data পরিচালনা।</p></li>
+          <li class="feature-item"><span>১১.</span><p>Geolocation API ব্যবহার করে Customer Location নেওয়ার ব্যবস্থা।</p></li>
+          <li class="feature-item"><span>১২.</span><p>Mobile, Tablet ও Desktop-এর উপযোগী Responsive Layout।</p></li>
+        </ol>
+      </section>
+
+      <!-- Challenges -->
+      <section class="mt-8">
+        <h3 class="mb-4 flex items-center gap-2 text-base font-bold text-white">
+          <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#ffb31a]/10 text-[#ffb31a]">
+            02
+          </span>
+          ডেভেলপমেন্টের সময় আমাদের সংগ্রাম
+        </h3>
+
+        <ol class="challenge-list space-y-3">
+          <li><strong>Cart Data Management:</strong> Quantity, Total Price এবং Cart Data সঠিকভাবে পরিচালনা করা।</li>
+          <li><strong>Multiple User সমস্যা:</strong> API-তে একাধিক User-এর Cart আলাদা রাখার বিষয়টি বোঝা ও পরিচালনা করা।</li>
+          <li><strong>Dashboard Edit System:</strong> পুরোনো Data Form-এ দেখানো এবং পরিবর্তিত Data API-তে Update করা।</li>
+          <li><strong>API ও Data Structure:</strong> 404 Error, ভুল URL, JSON Format ও Array of Objects-এর সমস্যা Debug করা।</li>
+          <li><strong>Checkout ও Token Logic:</strong> Customer Information, Product Quantity ও Total Price একসঙ্গে পরিচালনা করা।</li>
+          <li><strong>Parcel ও Table Booking:</strong> আলাদা Form ও Order Flow সঠিকভাবে পরিচালনা করা।</li>
+          <li><strong>Live Countdown:</strong> Preparation Time ও Quantity অনুযায়ী অপেক্ষার সময় গণনার Logic তৈরি করা।</li>
+          <li><strong>Location System:</strong> Geolocation API ও Google Maps Link নিয়ে কাজ করা।</li>
+          <li><strong>Wishlist ও LocalStorage:</strong> Data সংরক্ষণ এবং Refresh-এর পর সঠিকভাবে দেখানোর ব্যবস্থা করা।</li>
+          <li><strong>Debugging ও Logic Building:</strong> async/await, try/catch, reduce(), FormData এবং API Response-এর সমস্যা সমাধান করা।</li>
+        </ol>
+      </section>
+
+      <!-- Learning -->
+      <div class="mt-7 rounded-xl border border-[#ffb31a]/20 bg-[#ffb31a]/5 p-4">
+        <h3 class="font-bold text-[#ffb31a]">আমাদের শেখা</h3>
+        <p class="mt-2 text-sm leading-7 text-gray-300">
+          এই প্রজেক্টের মাধ্যমে UI Development-এর পাশাপাশি API Integration,
+          Data Management, Asynchronous JavaScript, Debugging এবং
+          Problem Solving-এর অভিজ্ঞতা অর্জনের সুযোগ হয়েছে।
+        </p>
+      </div>
+
+      <!-- Technologies -->
+      <div class="mt-5">
+        <h3 class="mb-3 text-sm font-bold text-white">ব্যবহৃত প্রযুক্তি</h3>
+
+        <div class="flex flex-wrap gap-2">
+          <span class="tech-tag">HTML</span>
+          <span class="tech-tag">Tailwind CSS</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">Axios</span>
+          <span class="tech-tag">REST API</span>
+          <span class="tech-tag">JSON Server</span>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="mt-7 border-t border-white/10 pt-5">
+        <p class="text-center text-xs text-gray-500">
+          Thanks for exploring our development journey ❤️
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 <script type="module" src="./src/main.ts"></script>
 </body>
 </html>

@@ -6,6 +6,10 @@
   --animate-clock-glow: clock-glow 2s ease-in-out infinite;
   --animate-success-enter: success-enter 0.45s cubic-bezier(.2,.8,.2,1) both;
   --animate-success-pop: success-pop 0.5s 0.1s ease-out both;
+  --animate-popup-loader: popup-loader 1.5s ease-in-out infinite;
+  --animate-popup-spin: popup-spin 1s linear infinite;
+  --animate-popup-appear: popup-appear 0.35s ease-out forwards;
+
 
   @keyframes clock-spin {
     to {
@@ -47,3 +51,83 @@
     }
   }
 }
+
+
+  @keyframes popup-loader {
+    0% {
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    50% {
+      transform: scaleX(0.7);
+      transform-origin: left;
+    }
+    100% {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  @keyframes popup-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes popup-appear {
+    from {
+      opacity: 0;
+      transform: scale(0.96) translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #d1d5db;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.feature-item > span {
+  flex-shrink: 0;
+  color: #ffb31a;
+  font-weight: 700;
+}
+
+.challenge-list {
+  padding-left: 20px;
+  list-style-type: decimal;
+  color: #d1d5db;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.challenge-list li {
+  padding-left: 3px;
+}
+
+.challenge-list li::marker {
+  color: #ffb31a;
+  font-weight: 700;
+}
+
+.challenge-list strong {
+  color: #f3f4f6;
+}
+
+.tech-tag {
+  border: 1px solid #343638;
+  border-radius: 999px;
+  background: #1a1c1e;
+  padding: 6px 11px;
+  font-size: 12px;
+  color: #d1d5db;
+}
+
