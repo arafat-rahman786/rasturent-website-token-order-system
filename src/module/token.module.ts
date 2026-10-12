@@ -375,7 +375,7 @@ parcelTokenForm?.addEventListener("submit", async (e) => {
   }
 });
 
-useCurrentLocation?.addEventListener("click",(e)=>{
+useCurrentLocation?.addEventListener("click",()=>{
   if(!navigator.geolocation){
     alert("Your Browser Don't Support Location System")
     return
