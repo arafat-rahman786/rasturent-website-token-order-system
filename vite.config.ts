@@ -13,6 +13,7 @@ export default defineConfig({
         dashboard: resolve(__dirname, 'dashboard.html'),
         token: resolve(__dirname, 'token.html'),
         liveToken: resolve(__dirname, 'live-token.html'),
+        edit: resolve(__dirname, 'edit.html'),
       }
     }
   },
