@@ -141,13 +141,9 @@ async function helping() {
     )
     const token = res.data
 
-    const products = Object.values(token).filter(
-      (item: any) =>
-        item &&
-        typeof item === "object" &&
-        "priceValue" in item &&
-        "quantity" in item
-    )
+  const products = Array.isArray(token.data)
+  ? token.data
+  : [];
 
    const totalPrice = products.reduce((total:number,item:any)=>{
     return total + item.priceValue * item.quantity
@@ -267,7 +263,7 @@ viewParcelToken?.addEventListener("click", () => {
   }
 
   window.location.href =
-    `./live-token.html?tokenId=${encodeURIComponent(tokenId)}`;
+    `./index.html`;
 });
 
 const parcelTokenForm = document.getElementById(

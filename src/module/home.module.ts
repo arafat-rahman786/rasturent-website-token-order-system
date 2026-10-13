@@ -1,5 +1,7 @@
 import api from '../../lib/api'
-
+// @ts-ignore toastify-js does not provide type declarations.
+import Toastify from 'toastify-js'
+import "toastify-js/src/toastify.css"
 type Product = {
   id: string | number
   productId: string
@@ -375,7 +377,7 @@ async function helpingRander() {
                 <a data-add-id="${item.id}"
                   href="${item.buttonDest || '#contact'}"
                   aria-label="Order ${item.productName}"
-                  class="CartBtn inline-flex h-10 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl ${buttonClass} ${buttonSize} text-xs font-extrabold text-[#181818] transition hover:bg-[#181818] hover:text-white"
+                  class="CartBtn inline-flex h-10 px-3.5 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-xl ${buttonClass} ${buttonSize} text-xs font-extrabold text-[#181818] transition hover:bg-[#181818] hover:text-white"
                 >
                   <i class="fa-solid fa-plus"></i>
                   ${item.buttonText || 'Add to Cart'}
@@ -453,6 +455,23 @@ menu_body?.addEventListener('click', async (e) => {
     })
   }
   localStorage.setItem('cart', JSON.stringify(dataConvert))
+
+Toastify({
+  text: `<i class="fa-solid fa-circle-check"></i> Your Product Is Added!`,
+  duration: 5000,
+  gravity: "top",
+  position: "right",
+  escapeMarkup: false,
+
+  style: {
+    background: "#101315",
+    color: "#ffffff",
+    border: "1px solid rgba(255, 179, 26, 0.3)",
+    borderRadius: "12px",
+    fontWeight: "600",
+  },
+}).showToast();
+
 
 } catch (error) {
   console.error(error)
@@ -793,8 +812,27 @@ menu_body?.addEventListener("click", async (e) => {
   }
   wish.push(data)
   localStorage.setItem('wishlist', JSON.stringify(wish))
-  console.log('Wishlist updated:', wish)
   await wishHelp()
+function showWishlistToast() {
+  Toastify({
+    text: `<i class="fa-solid fa-heart"></i> Added to Wishlist!`,
+    duration: 3000,
+    gravity: "top",
+    position: "right",
+    escapeMarkup: false,
+    className: "wishlist-toast",
+
+    style: {
+      background: "#101315",
+      color: "#ffffff",
+      border: "1px solid rgba(255, 75, 92, 0.3)",
+      borderRadius: "12px",
+      fontWeight: "600",
+      boxShadow: "0 10px 30px rgba(0, 0, 0, 0.35)",
+    },
+  }).showToast();
+}
+showWishlistToast()
 })
 
 async function wishHelp() {
@@ -983,3 +1021,50 @@ document.addEventListener("keydown", (event: KeyboardEvent) => {
     closeProjectPopup();
   }
 });
+
+
+wishlistItems?.addEventListener("click",async(e)=>{
+  if (!(e.target instanceof Element)) return;
+  const find = e.target.closest('[data-add-wishlist-cart]')
+  const id = find?.getAttribute('data-add-wishlist-cart')
+   try {
+  const getData = await api.get(`/cartProducts/${id}`)
+  const precess = getData.data
+  const localData = localStorage.getItem('cart')
+  const dataConvert = localData ? JSON.parse(localData) : []
+  const existingProduct = dataConvert.find((item: any) => {
+    return String(item.id) === String(id)
+  })
+  if (existingProduct) {
+    existingProduct.quantity += 1
+  } else {
+    dataConvert.push({
+      ...precess,
+      quantity: 1
+    })
+  }
+  localStorage.setItem('cart', JSON.stringify(dataConvert))
+
+Toastify({
+  text: `<i class="fa-solid fa-circle-check"></i> Your Product Is Added!`,
+  duration: 5000,
+  gravity: "top",
+  position: "right",
+  escapeMarkup: false,
+
+  style: {
+    background: "#101315",
+    color: "#ffffff",
+    border: "1px solid rgba(255, 179, 26, 0.3)",
+    borderRadius: "12px",
+    fontWeight: "600",
+  },
+}).showToast();
+
+
+} catch (error) {
+  console.error(error)
+  alert('there is error')
+}
+rendering()
+})

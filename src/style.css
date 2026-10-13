@@ -131,3 +131,68 @@
   color: #d1d5db;
 }
 
+.toastify {
+  position: relative;
+  overflow: hidden;
+}
+
+.toastify::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background: #ffb31a;
+  transform-origin: left;
+  animation: toastProgress 3s linear forwards;
+}
+
+@keyframes toastProgress {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
+.toastify .fa-circle-check {
+  color: #ffb31a;
+  margin-right: 8px;
+}
+
+
+.wishlist-toast {
+  position: relative;
+  overflow: hidden;
+}
+
+.wishlist-toast::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #ff4b5c;
+  transform-origin: left;
+  animation: wishlistProgress 3s linear forwards;
+}
+
+@keyframes wishlistProgress {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
+.wishlist-toast .fa-heart {
+  color: #ff4b5c;
+  margin-right: 8px;
+  font-size: 16px;
+}
