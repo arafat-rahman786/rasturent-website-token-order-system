@@ -515,65 +515,90 @@ function renderCart() {
     }
     const cartPageRander = cart.map((item: any) => {
       return `
-        <article
-          data-cart-id="${item.id}"
-          class="group relative flex gap-4 rounded-2xl border border-gray-100 bg-white p-3 shadow-sm transition hover:border-amber-200 hover:shadow-md"
+       <article
+  data-cart-id="${item.id}"
+  class="group relative flex gap-4 rounded-2xl border border-gray-100 bg-white p-3 shadow-sm transition hover:border-amber-200 hover:shadow-md"
+>
+  <div
+    class="relative h-28 w-28 shrink-0 overflow-hidden rounded-xl bg-gray-100 sm:h-32 sm:w-32"
+  >
+    <img
+      data-product-image
+      src="${item.imageSelect}"
+      alt="${item.imageAlt || item.productName}"
+      class="h-full w-full object-cover"
+    />
+
+    <span
+      class="absolute left-2 top-2 rounded-md bg-amber-500 px-2 py-1 text-[9px] font-extrabold uppercase tracking-wide text-gray-950"
+    >
+      ${item.badgeText ?? ''}
+    </span>
+  </div>
+
+  <div class="flex min-w-0 flex-1 flex-col">
+    <div class="flex items-start justify-between gap-2">
+      <h3 class="text-sm font-extrabold text-gray-900 sm:text-base">
+        ${item.productName}
+      </h3>
+
+      <button
+        type="button"
+        data-remove-id="${item.id}"
+        class="shrink-0 rounded-lg p-1.5 text-gray-400 transition hover:bg-red-50 hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-100"
+      >
+        <i class="fa-solid fa-trash"></i>
+      </button>
+    </div>
+
+    <p class="mt-1 text-xs text-gray-500">
+      প্রতি পিস ৳${item.priceValue}
+    </p>
+
+    <div class="mt-auto flex items-end justify-between gap-2 pt-3">
+      
+      <!-- Quantity Control -->
+      <div
+        class="flex h-9 items-center overflow-hidden rounded-xl border border-gray-200 bg-gray-50 shadow-sm"
+      >
+        <button
+          type="button"
+          data-decrease-id="${item.id}"
+          aria-label="Decrease quantity"
+          class="flex h-9 w-9 items-center justify-center text-gray-600 transition hover:bg-gray-200 hover:text-gray-950 active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-amber-400"
         >
-          <div class="relative h-28 w-28 shrink-0 overflow-hidden rounded-xl bg-gray-100 sm:h-32 sm:w-32">
-            <img
-              data-product-image
-              src="${item.imageSelect}"
-              alt="${item.imageAlt || item.productName}"
-              class="h-full w-full object-cover"
-            />
+          <i class="fa-solid fa-minus text-[11px]"></i>
+        </button>
 
-            <span class="absolute left-2 top-2 rounded-md bg-amber-500 px-2 py-1 text-[9px] font-extrabold uppercase tracking-wide text-gray-950">
-              ${item.badgeText ?? ''}
-            </span>
-          </div>
+        <span
+          class="flex h-9 min-w-9 items-center justify-center border-x border-gray-200 bg-white px-1 text-sm font-black text-gray-900"
+        >
+          ${item.quantity}
+        </span>
 
-          <div class="flex min-w-0 flex-1 flex-col">
-            <div class="flex items-start justify-between gap-2">
-              <h3 class="text-sm font-extrabold text-gray-900 sm:text-base">
-                ${item.productName}
-              </h3>
+        <button
+          type="button"
+          data-increase-id="${item.id}"
+          aria-label="Increase quantity"
+          class="flex h-9 w-9 items-center justify-center text-gray-600 transition hover:bg-amber-100 hover:text-amber-700 active:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-amber-400"
+        >
+          <i class="fa-solid fa-plus text-[11px]"></i>
+        </button>
+      </div>
 
-              <button type="button" data-remove-id="${item.id}"
-                class="shrink-0 rounded-lg p-1.5 text-gray-400 hover:text-red-500">
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </div>
+      <!-- Total Price -->
+      <div class="text-right">
+        <p class="text-[10px] font-medium text-gray-400">
+          মোট দাম
+        </p>
 
-            <p class="mt-1 text-xs text-gray-500">
-              প্রতি পিস ৳${item.priceValue}
-            </p>
-
-            <div class="mt-auto flex items-end justify-between gap-2 pt-3">
-              <div class="flex h-9 items-center rounded-xl border border-gray-200 bg-gray-50 p-1">
-                <button type="button" data-decrease-id="${item.id}"
-                  class="flex h-7 w-7 items-center justify-center">
-                  <i class="fa-solid fa-minus"></i>
-                </button>
-
-                <span class="min-w-8 px-1 text-center text-sm font-extrabold">
-                  ${item.quantity}
-                </span>
-
-                <button type="button" data-increase-id="${item.id}"
-                  class="flex h-7 w-7 items-center justify-center">
-                  <i class="fa-solid fa-plus"></i>
-                </button>
-              </div>
-
-              <div class="text-right">
-                <p class="text-[10px] text-gray-400">মোট দাম</p>
-                <p class="text-base font-black text-gray-900">
-                  ৳${Number(item.priceValue) * Number(item.quantity)}
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
+        <p class="text-base font-black text-gray-900">
+          ৳${Number(item.priceValue) * Number(item.quantity)}
+        </p>
+      </div>
+    </div>
+  </div>
+</article>
       `
     }).join('')
 

@@ -626,7 +626,7 @@
           <li>
             <a href="./dashboard.html" class="inline-flex items-center gap-2 transition hover:translate-x-1 hover:text-[#f5a900]">
               <i class="fa-solid fa-angle-right text-xs text-[#f5a900]"></i>
-              How It Works
+              Dashboard
             </a>
           </li>
           <li>
@@ -749,16 +749,18 @@
 <!-- Cart Drawer -->
 <aside
   id="cartPopup"
-  class="fixed right-0 top-0 z-[100] flex h-dvh w-full max-w-md translate-x-full flex-col bg-white shadow-2xl transition-transform duration-300 ease-in-out"
+  class="fixed right-0 top-0 z-[100] flex h-dvh w-full max-w-md translate-x-full flex-col border-l border-gray-200 bg-white shadow-2xl transition-transform duration-300 ease-in-out"
   aria-labelledby="cartTitle"
   aria-modal="true"
   role="dialog"
 >
   <!-- Header -->
-  <div class="flex items-center justify-between border-b border-gray-100 px-5 py-5 sm:px-6">
+  <div class="flex items-center justify-between border-b border-gray-200 bg-white px-5 py-5 sm:px-6">
     <div>
-      <div class="flex items-center gap-2">
-        <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-100 text-amber-600">
+      <div class="flex items-center gap-3">
+        <div
+          class="flex h-11 w-11 items-center justify-center rounded-2xl bg-amber-50 text-amber-500 ring-1 ring-amber-100"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-6 w-6"
@@ -767,18 +769,25 @@
             stroke="currentColor"
             stroke-width="1.8"
           >
-            <path stroke-linecap="round" stroke-linejoin="round"
-              d="M3 3h2l2.4 12.2a2 2 0 002 1.6h8.8a2 2 0 002-1.6L22 7H6" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 3h2l2.4 12.2a2 2 0 002 1.6h8.8a2 2 0 002-1.6L22 7H6"
+            />
             <circle cx="10" cy="21" r="1" />
             <circle cx="18" cy="21" r="1" />
           </svg>
         </div>
 
         <div>
-          <h2 id="cartTitle" class="text-xl font-extrabold tracking-tight text-gray-900">
+          <h2
+            id="cartTitle"
+            class="text-xl font-black tracking-tight text-gray-950"
+          >
             Your Cart
           </h2>
-          <p class="mt-0.5 text-xs text-gray-500">
+
+          <p class="mt-0.5 text-xs font-medium text-gray-500">
             Your favorites, ready to go!
           </p>
         </div>
@@ -789,35 +798,48 @@
       id="closeCartBtn"
       type="button"
       aria-label="Close cart"
-      class="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-600 transition hover:bg-gray-200 hover:text-gray-900"
+      class="flex h-10 w-10 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 text-gray-500 transition-all duration-200 hover:border-gray-300 hover:bg-gray-100 hover:text-gray-900"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 6l12 12M18 6L6 18"
+        />
       </svg>
     </button>
   </div>
 
   <!-- Cart Items Header -->
   <div class="flex items-center justify-between px-5 pb-3 pt-5 sm:px-6">
-    <p class="text-sm font-bold text-gray-800">
+    <p class="text-sm font-extrabold text-gray-900">
       Selected Items
+
       <span
         id="cartItemCount"
-        class="ml-1 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-amber-100 px-2 text-xs font-extrabold text-amber-700"
-      >0</span>
+        class="ml-1 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-amber-100 px-2 text-xs font-black text-amber-700"
+      >
+        0
+      </span>
     </p>
 
     <button
       id="clearCartBtn"
       type="button"
-      class="text-xs font-semibold text-red-500 transition hover:text-red-700"
+      class="rounded-lg px-2 py-1 text-xs font-bold text-red-500 transition hover:bg-red-50 hover:text-red-600"
     >
       Clear cart
     </button>
   </div>
 
-
+  <!-- Cart Items -->
   <div
     id="cartItems"
     class="flex-1 space-y-4 overflow-y-auto px-5 pb-5 sm:px-6"
@@ -827,19 +849,31 @@
       id="emptyCart"
       class="flex min-h-[300px] flex-col items-center justify-center text-center"
     >
-      <div class="flex h-24 w-24 items-center justify-center rounded-full bg-amber-50">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-amber-500"
-          fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-          <path stroke-linecap="round" stroke-linejoin="round"
-            d="M3 3h2l2.4 12.2a2 2 0 002 1.6h8.8a2 2 0 002-1.6L22 7H6" />
+      <div
+        class="flex h-24 w-24 items-center justify-center rounded-full bg-amber-50 ring-8 ring-amber-50/50"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-11 w-11 text-amber-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 3h2l2.4 12.2a2 2 0 002 1.6h8.8a2 2 0 002-1.6L22 7H6"
+          />
           <circle cx="10" cy="21" r="1" />
           <circle cx="18" cy="21" r="1" />
         </svg>
       </div>
 
-      <h3 class="mt-6 text-lg font-extrabold text-gray-900">
+      <h3 class="mt-6 text-lg font-black tracking-tight text-gray-950">
         Your cart is empty!
       </h3>
+
       <p class="mt-2 max-w-[240px] text-sm leading-6 text-gray-500">
         Looks like you haven't added any delicious food yet.
       </p>
@@ -847,29 +881,38 @@
       <button
         id="continueShoppingBtn"
         type="button"
-        class="mt-6 rounded-xl bg-amber-500 px-6 py-3 text-sm font-bold text-gray-950 shadow-lg shadow-amber-500/20 transition hover:bg-amber-400"
+        class="mt-6 rounded-xl bg-amber-500 px-6 py-3 text-sm font-extrabold text-gray-950 shadow-lg shadow-amber-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-amber-400 hover:shadow-xl hover:shadow-amber-500/25"
       >
         Explore Menu
       </button>
     </div>
-
   </div>
 
   <!-- Bottom Summary -->
-  <div class="border-t border-gray-100 bg-white px-5 pb-5 pt-5 sm:px-6">
-
-
-
+  <div
+    class="border-t border-gray-200 bg-gray-50/80 px-5 pb-5 pt-5 sm:px-6"
+  >
     <!-- Price Summary -->
-    <div class="space-y-3">
-      <div class="border-t border-dashed border-gray-200 pt-3">
-        <div class="flex items-center justify-between">
-          <span class="text-base font-extrabold text-gray-900">Total Amount</span>
-          <span id="cartTotal" class="text-2xl font-black tracking-tight text-gray-900">৳0</span>
+    <div class="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
+      <div class="space-y-3">
+        <div class="border-t border-dashed border-gray-200 pt-3">
+          <div class="flex items-center justify-between">
+            <span class="text-base font-black text-gray-950">
+              Total Amount
+            </span>
+
+            <span
+              id="cartTotal"
+              class="text-2xl font-black tracking-tight text-gray-950"
+            >
+              ৳0
+            </span>
+          </div>
+
+          <p class="mt-1 text-right text-[11px] font-medium text-gray-400">
+            Including applicable charges
+          </p>
         </div>
-        <p class="mt-1 text-right text-[11px] text-gray-400">
-          Including applicable charges
-        </p>
       </div>
     </div>
 
@@ -877,16 +920,27 @@
     <a
       id="checkoutBtn"
       href="./token.html"
-      class="mt-5 flex w-full items-center justify-center gap-3 rounded-2xl bg-amber-500 px-5 py-4 text-sm font-extrabold text-gray-950 shadow-lg shadow-amber-500/20 transition hover:-translate-y-0.5 hover:bg-amber-400 hover:shadow-xl"
+      class="mt-4 flex w-full items-center justify-center gap-3 rounded-2xl bg-amber-500 px-5 py-4 text-sm font-black text-gray-950 shadow-lg shadow-amber-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:bg-amber-400 hover:shadow-xl hover:shadow-amber-500/25"
     >
       <span>Proceed to Checkout</span>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
-        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7l7 7-7 7" />
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M5 12h14m-7-7l7 7-7 7"
+        />
       </svg>
     </a>
 
-    <p class="mt-3 text-center text-[11px] text-gray-400">
+    <p class="mt-3 text-center text-[11px] font-medium text-gray-400">
       Secure checkout · Fresh food · Great taste
     </p>
   </div>
